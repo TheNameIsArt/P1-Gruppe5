@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIScript : MonoBehaviour
 {
@@ -13,24 +14,28 @@ public class UIScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.LogFormat("Lives: {0}", health);
+        
         
     }
     // Update is called once per frame
     void Update()
     {
-        Lives.text = "Lives: " + health;
-        if (health <= 0 && gameIsOver == false) 
+        if (gameIsOver == false)
         {
-            Debug.Log("Game over!");
+            Lives.text = "Lives: " + health;
         }
+       
     }
 
     public void gameOver()
     {
         gameIsOver = true;
-        Debug.LogFormat("Game Over Man!");
-        GameOverSceen.SetActive(true);  
+        Lives.text = "Lives: 0";
+        GameOverSceen.SetActive(true); 
+        
     }
-
+    public void ResetLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // loads current scene
+    }
 }

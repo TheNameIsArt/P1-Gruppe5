@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LogicScript 
 {
@@ -12,5 +13,10 @@ public class LogicScript
     {
         gameIsOver = true;
         Debug.LogFormat("Game Over Man!");
+    }
+
+    public void ResetLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // loads current scene
     }
 }

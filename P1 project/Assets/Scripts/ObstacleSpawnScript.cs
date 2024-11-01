@@ -38,6 +38,7 @@ public class ObstacleScript : MonoBehaviour
     {
         int laneNumber = Random.Range(0, 6);
         int Xvalue;
+
         if (laneNumber == 0)
         {
             Xvalue = 3;
@@ -72,6 +73,7 @@ public class ObstacleScript : MonoBehaviour
         {
             Xvalue = 0;
         }
+        //Spawns obstacle
         Instantiate(Obstacle, new Vector3(Xvalue, transform.position.y, 0), transform.rotation);
     }
 

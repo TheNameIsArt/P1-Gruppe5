@@ -19,6 +19,7 @@ public class PlayerCollisionScript : MonoBehaviour
             if (UIScript.health <= 0 && UIScript.gameIsOver == false)
             {
                 UIScript.gameOver();
+                
             }
         }
     }
