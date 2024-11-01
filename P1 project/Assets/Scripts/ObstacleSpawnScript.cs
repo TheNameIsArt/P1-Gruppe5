@@ -6,9 +6,11 @@ public class ObstacleScript : MonoBehaviour
 {
     public GameObject Obstacle;
     public float spawnRate;
-    private float timer = 0;
+    public float timer = 0;
 
-    public float heightOffset = 10;
+
+
+    public float heightOffset = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -34,9 +36,43 @@ public class ObstacleScript : MonoBehaviour
 
     void spawnObstacle()
     {
-        float lowestPoint = transform.position.x - heightOffset;
-        float highestPoint = transform.position.x + heightOffset;
-        Instantiate(Obstacle, new Vector3(Random.Range(lowestPoint,highestPoint),transform.position.y, 0), transform.rotation);
+        int laneNumber = Random.Range(0, 6);
+        int Xvalue;
+        if (laneNumber == 0)
+        {
+            Xvalue = 3;
+        }
+        else if (laneNumber == 1)
+        {
+            Xvalue = 0;
+        }
+        else if (laneNumber == 2)
+        {
+            Xvalue = -3;
+        }
+        else if (laneNumber == 3)
+        {
+            Xvalue = 3;
+            Instantiate(Obstacle, new Vector3(Xvalue, transform.position.y, 0), transform.rotation);
+            Xvalue = 0;
+        }
+        else if (laneNumber == 4)
+        {
+            Xvalue = 3;
+            Instantiate(Obstacle, new Vector3(Xvalue, transform.position.y, 0), transform.rotation);
+            Xvalue = -3;
+        }
+        else if (laneNumber == 5)
+        {
+            Xvalue = -3;
+            Instantiate(Obstacle, new Vector3(Xvalue, transform.position.y, 0), transform.rotation);
+            Xvalue = 0;
+        }
+        else
+        {
+            Xvalue = 0;
+        }
+        Instantiate(Obstacle, new Vector3(Xvalue, transform.position.y, 0), transform.rotation);
     }
 
 
