@@ -37,44 +37,44 @@ public class ObstacleScript : MonoBehaviour
     void spawnObstacle()
     {
         int laneNumber = Random.Range(0, 6);
-        int Xvalue;
+        int Yvalue;
 
         if (laneNumber == 0)
         {
-            Xvalue = 3;
+            Yvalue = 3;
         }
         else if (laneNumber == 1)
         {
-            Xvalue = 0;
+            Yvalue = 0;
         }
         else if (laneNumber == 2)
         {
-            Xvalue = -3;
+            Yvalue = -3;
         }
         else if (laneNumber == 3)
         {
-            Xvalue = 3;
-            Instantiate(Obstacle, new Vector3(Xvalue, transform.position.y, 0), transform.rotation);
-            Xvalue = 0;
+            Yvalue = 3;
+            Instantiate(Obstacle, new Vector3(transform.position.x, Yvalue, 0), transform.rotation);
+            Yvalue = 0;
         }
         else if (laneNumber == 4)
         {
-            Xvalue = 3;
-            Instantiate(Obstacle, new Vector3(Xvalue, transform.position.y, 0), transform.rotation);
-            Xvalue = -3;
+            Yvalue = 3;
+            Instantiate(Obstacle, new Vector3(transform.position.x, Yvalue, 0), transform.rotation);
+            Yvalue = -3;
         }
         else if (laneNumber == 5)
         {
-            Xvalue = -3;
-            Instantiate(Obstacle, new Vector3(Xvalue, transform.position.y, 0), transform.rotation);
-            Xvalue = 0;
+            Yvalue = -3;
+            Instantiate(Obstacle, new Vector3(transform.position.x, Yvalue, 0), transform.rotation);
+            Yvalue = 0;
         }
         else
         {
-            Xvalue = 0;
+            Yvalue = 0;
         }
         //Spawns obstacle
-        Instantiate(Obstacle, new Vector3(Xvalue, transform.position.y, 0), transform.rotation);
+        Instantiate(Obstacle, new Vector3(transform.position.x, Yvalue, 0), transform.rotation);
     }
 
 

@@ -17,7 +17,7 @@ public class LaneMover : MonoBehaviour
     //Change lane size
     const float LaneWidth = 3f;
 
-    const float LaneZeroXPosition = -LaneWidth * (MaxLanes - 1) / 2.0f;
+    const float LaneZeroYPosition = -LaneWidth * (MaxLanes - 1) / 2.0f;
 
     const float LateralLaneMoveSpeed = 10.0f;
 
@@ -26,23 +26,23 @@ public class LaneMover : MonoBehaviour
     void Update()
     {
         // gather input to change lanes
-        if (Input.GetKeyDown(KeyCode.A)) laneNumber--;
-        if (Input.GetKeyDown(KeyCode.D)) laneNumber++;
+        if (Input.GetKeyDown(KeyCode.S)) laneNumber--;
+        if (Input.GetKeyDown(KeyCode.W)) laneNumber++;
 
         // now guard laneNumber to MaxLanes lanes
         if (laneNumber < 0) laneNumber = 0;
         if (laneNumber > MaxLanes - 1) laneNumber = MaxLanes - 1;
 
         // where should we be for this lane?
-        float laneXPosition = laneNumber * LaneWidth + LaneZeroXPosition;
+        float laneYPosition = laneNumber * LaneWidth + LaneZeroYPosition;
 
         // working copy
         Vector3 position = transform.position;
 
         // compute desired lateral position
-        position.x = Mathf.MoveTowards(
-                   position.x,
-                   laneXPosition,
+        position.y = Mathf.MoveTowards(
+                   position.y,
+                   laneYPosition,
                    LateralLaneMoveSpeed * Time.deltaTime);
 
         // move the player downrange if desired (change this to position.z for 3D games!)
