@@ -6,14 +6,14 @@ using UnityEngine;
 // Drop this on your player object
 // Move your camera to see it go into the distance (see note about 2D below)
 // press PLAY
-// use A and D to change lanes
+// use W and S to change lanes
 
 public class LaneMover : MonoBehaviour
 {
-    private int laneNumber;
+    public int laneNumber;
 
     const int MaxLanes = 3;
-    
+
     //Change lane size
     const float LaneWidth = 3f;
 
@@ -21,13 +21,15 @@ public class LaneMover : MonoBehaviour
 
     const float LateralLaneMoveSpeed = 10.0f;
 
+    // Enable if you want the character to move forward
     //const float ForwardPlayerSpeed = 5.0f;
 
     void Update()
     {
         // gather input to change lanes
-        if (Input.GetKeyDown(KeyCode.S)) laneNumber--;
-        if (Input.GetKeyDown(KeyCode.W)) laneNumber++;
+
+        //if (Input.GetKeyDown(KeyCode.S)) laneNumber--;
+        //if (Input.GetKeyDown(KeyCode.W)) laneNumber++;
 
         // now guard laneNumber to MaxLanes lanes
         if (laneNumber < 0) laneNumber = 0;

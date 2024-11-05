@@ -2,13 +2,22 @@
     "name": "PlayerInput",
     "maps": [
         {
-            "name": "InGame",
+            "name": "Player",
             "id": "14e4566d-9929-497a-bf00-5a5602c53a19",
             "actions": [
                 {
-                    "name": "Movement",
-                    "type": "Value",
+                    "name": "Touch",
+                    "type": "Button",
                     "id": "87ebccab-8d7a-4c0d-a69e-367eb6adcdb3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Swipe",
+                    "type": "Value",
+                    "id": "0b61910c-ef21-43b2-84f1-5fd5cc0412ee",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -17,59 +26,26 @@
             ],
             "bindings": [
                 {
-                    "name": "WSAD",
-                    "id": "816a93fd-c0bd-41e3-8351-30aa26520ed4",
-                    "path": "2DVector",
+                    "name": "",
+                    "id": "9a96354e-6137-41e7-b8c4-6eb39e587685",
+                    "path": "<Touchscreen>/Press",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
-                    "isComposite": true,
+                    "action": "Touch",
+                    "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "up",
-                    "id": "61285254-cafc-415d-8008-0953b02ab2c2",
-                    "path": "",
+                    "name": "",
+                    "id": "30cc50c4-abcd-41ba-b061-c6570ceca94d",
+                    "path": "<Touchscreen>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "Swipe",
                     "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "39de9f8a-d0cf-42c8-a699-fa7e228f1a53",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "423a8509-9549-4654-b706-d9fa15721c61",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "682e3fcf-a231-4cf9-a264-1c33d14bfe29",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 }
             ]
         }
