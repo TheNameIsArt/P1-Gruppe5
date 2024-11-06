@@ -34,11 +34,11 @@ public class SwipeTest : MonoBehaviour
         var position = Vector3.zero;
 
         //check horizontal direction
-        //if (_swipeDirection.x > 0) 
+        if (_swipeDirection.x > 0) 
         {
             Debug.Log("Swiping right");
         }
-        //else if (_swipeDirection.x < 0)
+        else if (_swipeDirection.x < 0)
         {
             Debug.Log("Swiping left");
         }
