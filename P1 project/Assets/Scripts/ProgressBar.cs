@@ -18,7 +18,6 @@ public class ProgressBar : MonoBehaviour
         IncrementProgress(1f); // How much of the slider is filled 
     }
 
-
     // Update is called once per frame
     void Update()
     {
