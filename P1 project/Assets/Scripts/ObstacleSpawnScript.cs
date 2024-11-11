@@ -30,6 +30,9 @@ public class ObstacleScript : MonoBehaviour
             timer = 0;
             spawnObstacle();
             
+            //makes game harder after each spawn.
+            //spawnRate = spawnRate -0.01f;
+            
         }
 
     }
