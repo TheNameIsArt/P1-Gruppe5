@@ -31,11 +31,24 @@ public class UIScript : MonoBehaviour
     {
         gameIsOver = true;
         Lives.text = "Lives: 0";
-        GameOverSceen.SetActive(true); 
+        GameOverSceen.SetActive(true);
+        Time.timeScale = 0;
         
     }
     public void ResetLevel()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); // loads current scene
+    }
+    void Pausebutton() 
+    {
+        if (Time.timeScale > 0)
+        {
+            Time.timeScale = 0;
+        }
+        else 
+        { 
+            Time.timeScale = 1;
+        }
     }
 }
