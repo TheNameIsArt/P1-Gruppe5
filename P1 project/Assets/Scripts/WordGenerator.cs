@@ -1,27 +1,56 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
-using Unity.Collections.LowLevel.Unsafe;
-using System;
-using System.Globalization;
+
 
 public class WordGenerator : MonoBehaviour
 {
-    string[] DanokWords = { "labi", "laci",
-        "ladi", "lafi", "lagi", "lahi", "laji","laki",
-        "lali", "lami", "lani", "lapi", "laqi", "lari",
-        "lasi", "lati", "lavi", "lawi", "laxi", "lazi"};
+    //Array of DanokWords
+    string[] DanokWords = { "Babi",
+        "Badi", "Bafi", "Bagi", "Baki",
+        "Bali", "Bami", "Bani", "Bapi",
+        "Basi", "Bati", "Bavi"};
+    
+    //Array of possible Consonants
+    string[] Consonants = {"B", "D", "F", "G",
+        "K", "L", "M", "N", "P", "S", "T", "V"};
+   
+    
+    //Number referenced in the arrays
+    int ConsonantInt;
 
-    string[] Consonants = {"b", "c", "d", "f", "g", "h",
-        "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "z"};
+
+    public TMP_Text DanokWordTxt;
+    public string LetterString;
+    public GameObject VoicePlayer;
+    public DANOKSpeechScript SpeechScript;
 
     void Start()
     {
-    
-
+        VoicePlayer = GameObject.Find("VoicePlayer");
+        SpeechScript = VoicePlayer.GetComponent<DANOKSpeechScript>();
+        WordChooser();
+        
     }
- 
+
+    //When the button is clicked 
+    public void WordChooser()
+    {
+        //Picks random number
+        ConsonantInt = Random.Range(0, 7);
+
+        //Says the ConsonantInt
+        Debug.LogFormat("The Random number is: {0}", ConsonantInt);
+
+        //Sets the Consonants Array and DanokWords Array to the same as ConsonantInt.
+        Debug.LogFormat("The Consonant is: {0} and the word is: {1}", Consonants[ConsonantInt], DanokWords[ConsonantInt]);
+
+        DanokWordTxt.text = DanokWords[ConsonantInt];
+        LetterString = Consonants[ConsonantInt];
+        Debug.LogFormat("LetterString = {0}", LetterString);
+        SpeechScript.PlayAudio();
+    }
 }
   
 
