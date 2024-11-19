@@ -7,10 +7,11 @@ using UnityEngine.SceneManagement;
 public class ProgressBar : MonoBehaviour
 {
     private Slider progressBar; 
-    private float fillSpeed = 0.04f; //Controls the speed of the bar 
+    private float fillSpeed = 0.1f; //Controls the speed of the bar 0.04 works great. Sped up for testing. 
     private float targetProgress = 0; 
     private bool isPaused = false; //Controls when the bar is paused
     public Button Cons_1Button;
+    public Button Cons_2Button;
 
     private List<float> pausePoints = new List<float> {0.25f, 0.5f, 0.75f}; //Pause points
     
@@ -52,17 +53,21 @@ public class ProgressBar : MonoBehaviour
     }
     
     // Pause the bar
+    // Button appears
     public void PauseProgress()
     {
         isPaused = true;
         Cons_1Button.gameObject.SetActive(true);
+        Cons_2Button.gameObject.SetActive(true);
     }
 
     // Resume the bar 
+    // Then button is pressed, it dissapears
     public void ResumeProgress()
     {
         isPaused = false;
         Cons_1Button.gameObject.SetActive(false);
+        Cons_2Button.gameObject.SetActive(false);
     }
 
 }
