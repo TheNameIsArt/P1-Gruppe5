@@ -7,10 +7,10 @@ using TMPro;
 public class WordGenerator : MonoBehaviour
 {
     //Array of DanokWords
-    string[] DanokWords = { "Babi",
-        "Badi", "Bafi", "Bagi", "Baki",
-        "Bali", "Bami", "Bani", "Bapi",
-        "Basi", "Bati", "Bavi"};
+    string[] DanokWords = { "babi",
+        "badi", "bafi", "bagi", "baki",
+        "bali", "bami", "bani", "bapi",
+        "basi", "bati", "bavi"};
     
     //Array of possible Consonants
     string[] Consonants = {"B", "D", "F", "G",
@@ -19,17 +19,18 @@ public class WordGenerator : MonoBehaviour
     
     //Number referenced in the arrays
     int ConsonantInt;
-
+    public string ChosenWord;
 
     public TMP_Text DanokWordTxt;
     public string LetterString;
     public GameObject VoicePlayer;
-    public DANOKSpeechScript SpeechScript;
+    public VoiceChooser SpeechScript;
+   
 
     void Start()
     {
         VoicePlayer = GameObject.Find("VoicePlayer");
-        SpeechScript = VoicePlayer.GetComponent<DANOKSpeechScript>();
+        SpeechScript = VoicePlayer.GetComponent<VoiceChooser>();
         WordChooser();
         
     }
@@ -37,7 +38,7 @@ public class WordGenerator : MonoBehaviour
     //When the button is clicked 
     public void WordChooser()
     {
-        //Picks random number
+        //Picks random Consonant number
         ConsonantInt = Random.Range(0, 7);
 
         //Says the ConsonantInt
@@ -46,7 +47,8 @@ public class WordGenerator : MonoBehaviour
         //Sets the Consonants Array and DanokWords Array to the same as ConsonantInt.
         Debug.LogFormat("The Consonant is: {0} and the word is: {1}", Consonants[ConsonantInt], DanokWords[ConsonantInt]);
 
-        DanokWordTxt.text = DanokWords[ConsonantInt];
+        DanokWordTxt.text = "Ba?i";
+        ChosenWord = DanokWords[ConsonantInt];
         LetterString = Consonants[ConsonantInt];
         Debug.LogFormat("LetterString = {0}", LetterString);
         SpeechScript.PlayAudio();

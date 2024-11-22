@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class DANOKSpeechScript : MonoBehaviour
+public class VoiceChooser : MonoBehaviour
 {
     public AudioSource AudioSource;
     public AudioClip[] audioClips; // Drag and drop the AudioSources in the Inspector
@@ -11,9 +11,12 @@ public class DANOKSpeechScript : MonoBehaviour
 
     public GameObject Logic;
     public WordGenerator wordGenerator;
-
+    string[] Voices = { "_F1", "_F2", "_M1", "_M2" };
+    int numberOfVoices = 5; // Adjust based on your clip count
+   
     void Start()
     {
+        
         AudioSource = GetComponent<AudioSource>();
         Logic = GameObject.Find("Logic");
         wordGenerator = Logic.GetComponent<WordGenerator>();
@@ -30,11 +33,14 @@ public class DANOKSpeechScript : MonoBehaviour
         }
     }
 
- 
+
     public void PlayAudio()
     {
-        audioClipName = wordGenerator.ChosenWord;
-        
+        int randomIndex = Random.Range(1, numberOfVoices + 1);
+        audioClipName = wordGenerator.ChosenWord + Voices[randomIndex];
+        Debug.Log("AudioClipName = " + audioClipName);
+
+
         if (audioClipMap.TryGetValue(audioClipName, out AudioClip clip))
         {
             AudioSource.clip = clip;

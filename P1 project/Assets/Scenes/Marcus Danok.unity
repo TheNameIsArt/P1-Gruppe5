@@ -486,15 +486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioSource: {fileID: 0}
-  audioClips:
-  - {fileID: 8300000, guid: c0bce22b9fbb1fb4dac93a055176bd47, type: 3}
-  - {fileID: 8300000, guid: 937bbea252dd6594b92e16a8de7bbe73, type: 3}
-  - {fileID: 8300000, guid: 8905e41a4524eb84fad3beafad0f8767, type: 3}
-  - {fileID: 8300000, guid: 0adb5992ab074414787fa4a34955a1f4, type: 3}
-  - {fileID: 8300000, guid: e790becb0a0fa1249a0b58745ce0fb61, type: 3}
-  - {fileID: 8300000, guid: 31880edf6200b2c498d857cb0a015101, type: 3}
-  - {fileID: 8300000, guid: a181a34dcf6eed3458823985da75a453, type: 3}
-  - {fileID: 8300000, guid: 1b0c52ecda0321e4c93104237dda4df2, type: 3}
+  audioClips: []
   Logic: {fileID: 0}
   wordGenerator: {fileID: 0}
 --- !u!1001 &197505805
@@ -729,6 +721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a52783201dad99e438aa1fbca26e6e95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChosenWord: 
   DanokWordTxt: {fileID: 742888382}
   LetterString: 
   VoicePlayer: {fileID: 0}

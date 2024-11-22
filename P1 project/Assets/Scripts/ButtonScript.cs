@@ -14,13 +14,15 @@ public class ButtonScript : MonoBehaviour
     public WordGenerator wordGenerator;
     string Letter;
     public TMP_Text KeyTxt;
+    public TMP_Text WordTxt;
+    AudioSource SFXPlayer;
     
 
     void Start()
     {
         Logic = GameObject.Find("Logic");
         wordGenerator = Logic.GetComponent<WordGenerator>();
-        
+        SFXPlayer = GetComponent<AudioSource>();
         Letter = wordGenerator.LetterString;
 
         //Finds button and adds listener to click
@@ -35,15 +37,21 @@ public class ButtonScript : MonoBehaviour
     void TaskOnClick()
     {
 
-        
+
         if (Letter == KeyTxt.text)
         {
             Debug.Log("Correct answer!");
-             wordGenerator.WordChooser();
+            wordGenerator.DanokWordTxt.text = wordGenerator.ChosenWord;
+            SFXPlayer.Play();
+            Invoke("NextWord", 5f);
         }
         else
         {
             Debug.Log("Wrong! Try again.");
         }
+    }
+    void NextWord()
+    {
+        wordGenerator.WordChooser();
     }
 }
