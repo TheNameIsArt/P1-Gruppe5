@@ -44,6 +44,7 @@ public class ButtonScript : MonoBehaviour
             wordGenerator.DanokWordTxt.text = wordGenerator.ChosenWord;
             SFXPlayer.Play();
             Invoke("NextWord", 5f);
+            
         }
         else
         {

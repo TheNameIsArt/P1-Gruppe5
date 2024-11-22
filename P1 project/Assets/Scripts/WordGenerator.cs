@@ -47,7 +47,7 @@ public class WordGenerator : MonoBehaviour
         //Sets the Consonants Array and DanokWords Array to the same as ConsonantInt.
         Debug.LogFormat("The Consonant is: {0} and the word is: {1}", Consonants[ConsonantInt], DanokWords[ConsonantInt]);
 
-        DanokWordTxt.text = "Ba?i";
+        DanokWordTxt.text = "ba?i";
         ChosenWord = DanokWords[ConsonantInt];
         LetterString = Consonants[ConsonantInt];
         Debug.LogFormat("LetterString = {0}", LetterString);

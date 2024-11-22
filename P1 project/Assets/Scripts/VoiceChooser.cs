@@ -12,7 +12,7 @@ public class VoiceChooser : MonoBehaviour
     public GameObject Logic;
     public WordGenerator wordGenerator;
     string[] Voices = { "_F1", "_F2", "_M1", "_M2" };
-    int numberOfVoices = 5; // Adjust based on your clip count
+    int numberOfVoices = 3; // Adjust based on your clip count
    
     void Start()
     {
@@ -36,7 +36,7 @@ public class VoiceChooser : MonoBehaviour
 
     public void PlayAudio()
     {
-        int randomIndex = Random.Range(1, numberOfVoices + 1);
+        int randomIndex = Random.Range(0, numberOfVoices + 1);
         audioClipName = wordGenerator.ChosenWord + Voices[randomIndex];
         Debug.Log("AudioClipName = " + audioClipName);
 

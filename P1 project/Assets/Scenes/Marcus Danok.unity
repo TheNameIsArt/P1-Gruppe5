@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 190470865}
   - component: {fileID: 190470864}
   - component: {fileID: 190470866}
+  - component: {fileID: 190470867}
   m_Layer: 0
   m_Name: VoicePlayer
   m_TagString: Untagged
@@ -480,9 +481,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 190470862}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b72795f685ded45489c64365c1ef9d65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioSource: {fileID: 0}
+  audioClips: []
+  Logic: {fileID: 0}
+  wordGenerator: {fileID: 0}
+--- !u!114 &190470867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 190470862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2d6b140a44eac94288b6569fe60fa91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   AudioSource: {fileID: 0}
