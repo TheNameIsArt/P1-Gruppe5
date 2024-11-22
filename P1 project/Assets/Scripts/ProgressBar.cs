@@ -15,7 +15,6 @@ public class ProgressBar : MonoBehaviour
 
     private List<float> pausePoints = new List<float> {0.25f, 0.5f, 0.75f}; //Pause points
     
-
     private void Awake()
     {
         progressBar = gameObject.GetComponent<Slider>();

@@ -26,7 +26,4 @@ public class CheckpointBehavior : MonoBehaviour
         circleSprites[currentIndex].color = Color.red; // Change current circle to red
         currentIndex = (currentIndex + 1) % circleSprites.Length; // Move to the next circle
     }
-
-    // Helper method to reset all circles' colors to white
-    
 }
