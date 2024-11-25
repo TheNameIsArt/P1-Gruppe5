@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Bat_Down
+  m_Name: Pink
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,7 +21,15 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 248145279, guid: 1b200804574d4a3409ee5f89ab36c4b0, type: 3}
+      value: {fileID: -683290518, guid: 26191fe4f0cf08446877a867b9afef09, type: 3}
+    - time: 0.083333336
+      value: {fileID: 1020746940, guid: 26191fe4f0cf08446877a867b9afef09, type: 3}
+    - time: 0.16666667
+      value: {fileID: 2101062930, guid: 26191fe4f0cf08446877a867b9afef09, type: 3}
+    - time: 0.25
+      value: {fileID: 1020746940, guid: 26191fe4f0cf08446877a867b9afef09, type: 3}
+    - time: 0.33333334
+      value: {fileID: 1211077876, guid: 26191fe4f0cf08446877a867b9afef09, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -44,13 +52,17 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 248145279, guid: 1b200804574d4a3409ee5f89ab36c4b0, type: 3}
+    - {fileID: -683290518, guid: 26191fe4f0cf08446877a867b9afef09, type: 3}
+    - {fileID: 1020746940, guid: 26191fe4f0cf08446877a867b9afef09, type: 3}
+    - {fileID: 2101062930, guid: 26191fe4f0cf08446877a867b9afef09, type: 3}
+    - {fileID: 1020746940, guid: 26191fe4f0cf08446877a867b9afef09, type: 3}
+    - {fileID: 1211077876, guid: 26191fe4f0cf08446877a867b9afef09, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.016666668
+    m_StopTime: 0.35000002
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
