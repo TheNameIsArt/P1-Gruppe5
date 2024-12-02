@@ -1,84 +1,84 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ObstacleScript : MonoBehaviour
+public class ObstacleSpawnScript : MonoBehaviour
 {
-    public GameObject Obstacle;
+    // Array to store different obstacle types
+    public GameObject[] Obstacles;
+
     public float spawnRate;
     public float timer = 0;
 
-
-
-    public float heightOffset = 0;
-
-    // Start is called before the first frame update
     void Start()
     {
         spawnObstacle();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // Check if it's time to spawn a new obstacle
         if (timer < spawnRate)
         {
-            timer = timer + Time.deltaTime;
+            timer += Time.deltaTime;
         }
         else
         {
             timer = 0;
             spawnObstacle();
-            
-            //makes game harder after each spawn.
-            //spawnRate = spawnRate -0.01f;
-            
         }
-
     }
 
     void spawnObstacle()
     {
         int laneNumber = Random.Range(0, 6);
-        int Yvalue;
+        float Yvalue = 0f;
+        float Zvalue = 0f;
 
+        // Define positions based on laneNumber
         if (laneNumber == 0)
         {
-            Yvalue = 3;
+            Yvalue = -5f;
+            Zvalue = 0f; // Closer to the camera
         }
         else if (laneNumber == 1)
         {
-            Yvalue = 0;
+            Yvalue = -3.3f;
+            Zvalue = 1f;
         }
         else if (laneNumber == 2)
         {
-            Yvalue = -3;
+            Yvalue = -1.6f;
+            Zvalue = 2f; // Farther away
         }
         else if (laneNumber == 3)
         {
-            Yvalue = 3;
-            Instantiate(Obstacle, new Vector3(transform.position.x, Yvalue, 0), transform.rotation);
-            Yvalue = 0;
+            InstantiateRandomObstacle(new Vector3(transform.position.x, -5f, 0f));
+            InstantiateRandomObstacle(new Vector3(transform.position.x, -3.3f, 1f));
+            return; // Avoid double-instantiating
         }
         else if (laneNumber == 4)
         {
-            Yvalue = 3;
-            Instantiate(Obstacle, new Vector3(transform.position.x, Yvalue, 0), transform.rotation);
-            Yvalue = -3;
+            InstantiateRandomObstacle(new Vector3(transform.position.x, -5f, 0f));
+            InstantiateRandomObstacle(new Vector3(transform.position.x, -1.6f, 2f));
+            return; // Avoid double-instantiating
         }
         else if (laneNumber == 5)
         {
-            Yvalue = -3;
-            Instantiate(Obstacle, new Vector3(transform.position.x, Yvalue, 0), transform.rotation);
-            Yvalue = 0;
+            InstantiateRandomObstacle(new Vector3(transform.position.x, -1.6f, 2f));
+            InstantiateRandomObstacle(new Vector3(transform.position.x, -3.34f, 1f));
+            return; // Avoid double-instantiating
         }
-        else
-        {
-            Yvalue = 0;
-        }
-        //Spawns obstacle
-        Instantiate(Obstacle, new Vector3(transform.position.x, Yvalue, 0), transform.rotation);
+
+        // Spawn obstacle for single lane
+        InstantiateRandomObstacle(new Vector3(transform.position.x, Yvalue, Zvalue));
     }
 
+    void InstantiateRandomObstacle(Vector3 position)
+    {
+        // Randomly pick an obstacle from the array
+        int randomIndex = Random.Range(0, Obstacles.Length);
+        GameObject selectedObstacle = Obstacles[randomIndex];
 
+        // Spawn the selected obstacle at the given position
+        Instantiate(selectedObstacle, position, transform.rotation);
+    }
 }
