@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Sky
+    uniqueID: 1512429009
+    locked: 0
+  - name: Buildings
+    uniqueID: 2371899085
+    locked: 0
+  - name: PeopleAndLanes
+    uniqueID: 3846286109
+    locked: 0
