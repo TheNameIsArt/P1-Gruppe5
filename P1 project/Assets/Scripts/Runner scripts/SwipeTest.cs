@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,7 +18,7 @@ public class SwipeTest : MonoBehaviour
         _controls.Player.Enable();
         _controls.Player.Touch.canceled += ProcessTouchComplete;
         _controls.Player.Swipe.performed += ProcessSwipeDelta;
-        LaneMover = GetComponent<LaneMover>();
+        LaneMover = GameObject.Find("Player").GetComponent<LaneMover>();
     }
     private void ProcessSwipeDelta(InputAction.CallbackContext context) 
     {
