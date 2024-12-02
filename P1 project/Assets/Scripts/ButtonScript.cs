@@ -16,6 +16,7 @@ public class ButtonScript : MonoBehaviour
     public TMP_Text KeyTxt;
     public TMP_Text WordTxt;
     AudioSource SFXPlayer;
+    bool Freezebutton = false;
     
 
     void Start()
@@ -37,22 +38,29 @@ public class ButtonScript : MonoBehaviour
     void TaskOnClick()
     {
 
-
-        if (Letter == KeyTxt.text)
+        if (Freezebutton == false)
         {
-            Debug.Log("Correct answer!");
-            wordGenerator.DanokWordTxt.text = wordGenerator.ChosenWord;
-            SFXPlayer.Play();
-            Invoke("NextWord", 5f);
-            
+            if (Letter == KeyTxt.text)
+            {
+                Debug.Log("Correct answer!");
+                wordGenerator.DanokWordTxt.text = wordGenerator.ChosenWord;
+                SFXPlayer.Play();
+                Invoke("NextWord", 5f);
+                Freezebutton = true;
+            }
+            else
+            {
+                if (Freezebutton == false)
+                {
+                    Debug.Log("Wrong! Try again.");
+                }
+            }
         }
-        else
-        {
-            Debug.Log("Wrong! Try again.");
-        }
+        
     }
     void NextWord()
     {
         wordGenerator.WordChooser();
+        Freezebutton = false;
     }
 }

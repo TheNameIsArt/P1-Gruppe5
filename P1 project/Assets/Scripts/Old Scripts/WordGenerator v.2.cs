@@ -4,19 +4,19 @@ using UnityEngine.UI;
 using TMPro;
 
 
-public class WordGenerator : MonoBehaviour
+public class WordGenerator2 : MonoBehaviour
 {
     //Array of DanokWords
     string[] DanokWords = { "babi",
         "badi", "bafi", "bagi", "baki",
         "bali", "bami", "bani", "bapi",
         "basi", "bati", "bavi"};
-    
+
     //Array of possible Consonants
     string[] Consonants = {"B", "D", "F", "G",
         "K", "L", "M", "N", "P", "S", "T", "V"};
-   
-    
+
+
     //Number referenced in the arrays
     int ConsonantInt;
     public string ChosenWord;
@@ -25,14 +25,14 @@ public class WordGenerator : MonoBehaviour
     public string LetterString;
     public GameObject VoicePlayer;
     public VoiceChooser SpeechScript;
-   
+
 
     void Start()
     {
         VoicePlayer = GameObject.Find("VoicePlayer");
         SpeechScript = VoicePlayer.GetComponent<VoiceChooser>();
         WordChooser();
-        
+
     }
 
     //When the button is clicked 
@@ -51,10 +51,10 @@ public class WordGenerator : MonoBehaviour
         ChosenWord = DanokWords[ConsonantInt];
         LetterString = Consonants[ConsonantInt];
         Debug.LogFormat("LetterString = {0}", LetterString);
-        SpeechScript.PlayAudio();
+        //SpeechScript.PlayAudio();
     }
 }
-  
 
-  
+
+
 

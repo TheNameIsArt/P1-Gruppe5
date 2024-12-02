@@ -505,7 +505,7 @@ MonoBehaviour:
   AudioSource: {fileID: 0}
   audioClips: []
   Logic: {fileID: 0}
-  wordGenerator: {fileID: 0}
+  DANOKWordChooser: {fileID: 0}
 --- !u!1001 &197505805
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -718,7 +718,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 345762739}
-  - component: {fileID: 345762738}
+  - component: {fileID: 345762740}
   m_Layer: 0
   m_Name: Logic
   m_TagString: Untagged
@@ -726,23 +726,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &345762738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 345762737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a52783201dad99e438aa1fbca26e6e95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ChosenWord: 
-  DanokWordTxt: {fileID: 742888382}
-  LetterString: 
-  VoicePlayer: {fileID: 0}
-  SpeechScript: {fileID: 0}
 --- !u!4 &345762739
 Transform:
   m_ObjectHideFlags: 0
@@ -758,6 +741,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &345762740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345762737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5bf1e31b837b554f9fd29e1155e4b9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DanokWords: []
+  VoicePlayer: {fileID: 0}
+  VoiceChooser: {fileID: 0}
+  AudioSource: {fileID: 0}
+  audioClips: []
+  M1: 1
+  M2: 0
+  F1: 0
+  F2: 0
 --- !u!1001 &375408516
 PrefabInstance:
   m_ObjectHideFlags: 0

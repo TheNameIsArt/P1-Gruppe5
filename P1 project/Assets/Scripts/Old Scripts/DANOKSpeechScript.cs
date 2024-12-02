@@ -10,13 +10,13 @@ public class DANOKSpeechScript : MonoBehaviour
     private string audioClipName;
 
     public GameObject Logic;
-    public WordGenerator wordGenerator;
+    public DANOKWordChooser wordGenerator;
 
     void Start()
     {
         AudioSource = GetComponent<AudioSource>();
         Logic = GameObject.Find("Logic");
-        wordGenerator = Logic.GetComponent<WordGenerator>();
+        wordGenerator = Logic.GetComponent<DANOKWordChooser>();
         audioClips = Resources.LoadAll<AudioClip>("Audio");
 
         // Initialize the dictionary
@@ -30,7 +30,7 @@ public class DANOKSpeechScript : MonoBehaviour
         }
     }
 
- 
+ /*
     public void PlayAudio()
     {
         audioClipName = wordGenerator.ChosenWord;
@@ -44,5 +44,5 @@ public class DANOKSpeechScript : MonoBehaviour
         {
             Debug.LogError($"AudioClip with name '{audioClipName}' not found.");
         }
-    }
+    }*/
 }
