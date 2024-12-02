@@ -7,17 +7,20 @@ using UnityEngine.SceneManagement;
 public class ProgressBar : MonoBehaviour
 {
     private Slider progressBar; 
-    private float fillSpeed = 0.1f; //Controls the speed of the bar 0.04 works great. Sped up for testing. 
+    public float fillSpeed = 0.008f; //Controls the speed of the bar 0.04 works great. Sped up for testing. 
     private float targetProgress = 0; 
     private bool isPaused = false; //Controls when the bar is paused
     public Button Cons_1Button;
     public Button Cons_2Button;
+
+    public GameObject Spawner;
 
     private List<float> pausePoints = new List<float> {0.25f, 0.5f, 0.75f}; //Pause points
     
     private void Awake()
     {
         progressBar = gameObject.GetComponent<Slider>();
+        Spawner = GameObject.Find("Spawner");
     }
     
     void Start()
@@ -58,6 +61,7 @@ public class ProgressBar : MonoBehaviour
         isPaused = true;
         Cons_1Button.gameObject.SetActive(true);
         Cons_2Button.gameObject.SetActive(true);
+        Spawner.SetActive(false);
     }
 
     // Resume the bar 
@@ -67,6 +71,7 @@ public class ProgressBar : MonoBehaviour
         isPaused = false;
         Cons_1Button.gameObject.SetActive(false);
         Cons_2Button.gameObject.SetActive(false);
+        Spawner.SetActive(true);
     }
 
 }
