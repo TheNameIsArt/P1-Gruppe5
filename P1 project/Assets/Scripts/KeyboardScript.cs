@@ -26,9 +26,13 @@ public class KeyboardScript : MonoBehaviour
     float cooldownTime = 4f;
     float cooldownTimeBM = 4f;
 
+    private ProgressBar progressBar;
+
     //Referencer til SpriteSpawner
     //public SpriteSpawnerScript SpriteSpawnerScript;
     public GameObject SpriteSpawner;
+
+
     private void Start()
     {
         //Her referere vi til forskellige gameobjects og scripts, og sætter dem lig med
@@ -39,6 +43,8 @@ public class KeyboardScript : MonoBehaviour
         //SpriteSpawnerScript = SpriteSpawner.GetComponent<SpriteSpawnerScript>();
         Logic = GameObject.Find("Logic");
         wordGenerator = Logic.GetComponent<WordGeneratorV3>();
+
+        progressBar = GameObject.Find("DontDestroyOnLoad").GetComponentInChildren<ProgressBar>();
 
 
     }
@@ -54,6 +60,7 @@ public class KeyboardScript : MonoBehaviour
         {
             Debug.Log("Correct answer!");
             ShowThumbsUp(); //Korrekt svar
+            progressBar.ResumeProgress();
             wordGenerator.DanokWordTxt.text = wordGenerator.ChosenWord;
             if (!isOnCooldown)
             {

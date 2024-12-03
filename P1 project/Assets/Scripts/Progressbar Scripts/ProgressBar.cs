@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
+
 public class ProgressBar : MonoBehaviour
 {
     private Slider progressBar; 
@@ -12,6 +14,7 @@ public class ProgressBar : MonoBehaviour
     private bool isPaused = false; //Controls when the bar is paused
     public Button Cons_1Button;
     public Button Cons_2Button;
+    public static ProgressBar Instance;
 
     public GameObject Spawner;
 
@@ -21,6 +24,10 @@ public class ProgressBar : MonoBehaviour
     {
         progressBar = gameObject.GetComponent<Slider>();
         Spawner = GameObject.Find("Spawner");
+
+      
+
+        
     }
     
     void Start()
@@ -59,8 +66,9 @@ public class ProgressBar : MonoBehaviour
     public void PauseProgress()
     {
         isPaused = true;
-        Cons_1Button.gameObject.SetActive(true);
-        Cons_2Button.gameObject.SetActive(true);
+        SceneManager.LoadScene("Marcus Danok");
+        //Cons_1Button.gameObject.SetActive(true);
+        //Cons_2Button.gameObject.SetActive(true);
         Spawner.SetActive(false);
     }
 
@@ -69,9 +77,10 @@ public class ProgressBar : MonoBehaviour
     public void ResumeProgress()
     {
         isPaused = false;
-        Cons_1Button.gameObject.SetActive(false);
-        Cons_2Button.gameObject.SetActive(false);
-        Spawner.SetActive(true);
+        SceneManager.LoadScene("Runner Game");
+        //Cons_1Button.gameObject.SetActive(false);
+        //Cons_2Button.gameObject.SetActive(false);
+        
     }
 
 }
