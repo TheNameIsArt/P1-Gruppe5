@@ -374,7 +374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parallaxFactor: 0.5
   movementSpeed: -1
-  backgroundWidth: 25
+  backgroundWidth: 28.1
 --- !u!1 &276284051
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,7 +526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parallaxFactor: 0.2
   movementSpeed: -1
-  backgroundWidth: 25.5
+  backgroundWidth: 26.7
 --- !u!224 &409378913 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6127561917316623687, guid: 9895b93e1eede174083049f7bbeddbba, type: 3}
@@ -1679,7 +1679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parallaxFactor: 1
   movementSpeed: -1
-  backgroundWidth: 21.5
+  backgroundWidth: 26.7
 --- !u!1 &1002169360
 GameObject:
   m_ObjectHideFlags: 0
@@ -2215,7 +2215,7 @@ Transform:
   m_GameObject: {fileID: 1530908128}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -75, y: -470, z: -7500}
+  m_LocalPosition: {x: -75, y: -470, z: -5000}
   m_LocalScale: {x: 12, y: 12, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
