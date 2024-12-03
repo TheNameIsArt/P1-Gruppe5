@@ -2277,7 +2277,6 @@ MonoBehaviour:
   - -5
   - -3.5
   - -1.5
-  - 5
 --- !u!82 &1530908137
 AudioSource:
   m_ObjectHideFlags: 0
