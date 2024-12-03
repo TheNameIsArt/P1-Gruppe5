@@ -19,9 +19,12 @@ public class PlayerCollisionScript : MonoBehaviour
         {
             
             UIScript.health = UIScript.health - 1;
+         
+           
             if (UIScript.health >= 0)
             {
                 DamageSound.Play();
+                
             }
                 if (UIScript.health <= 0 && UIScript.gameIsOver == false)
             {

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class UIScript : MonoBehaviour
 {
+    public GameObject [] hearts;
     public bool gameIsOver;
     public int health = 3;
 
@@ -14,18 +15,51 @@ public class UIScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        
+        UpdateHearts();
     }
     // Update is called once per frame
     void Update()
+    {
+        UpdateHearts();
+    }
+
+    void LateUpdate()
     {
         if (gameIsOver == false)
         {
             Lives.text = "Lives: " + health;
         }
-       
     }
+
+    private void UpdateHearts()
+    {
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            if (i < health)
+            {
+                hearts[i].SetActive(true); 
+            }
+            else
+            {
+                hearts[i].SetActive(false); 
+            }
+        }
+    }
+     public void LoseHealth()
+    {
+        if (health > 0)
+        {
+            health--;
+            UpdateHearts();
+
+            if (health <= 0)
+            {
+                gameOver();
+            }
+        }
+    }
+
+
 
     public void gameOver()
     {
