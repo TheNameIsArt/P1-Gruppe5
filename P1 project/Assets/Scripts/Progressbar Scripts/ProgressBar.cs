@@ -15,6 +15,7 @@ public class ProgressBar : MonoBehaviour
     public Button Cons_1Button;
     public Button Cons_2Button;
     public static ProgressBar Instance;
+    
 
     public GameObject Spawner;
 
@@ -24,7 +25,7 @@ public class ProgressBar : MonoBehaviour
     {
         progressBar = gameObject.GetComponent<Slider>();
         Spawner = GameObject.Find("Spawner");
-
+        
       
 
         
@@ -70,6 +71,7 @@ public class ProgressBar : MonoBehaviour
         //Cons_1Button.gameObject.SetActive(true);
         //Cons_2Button.gameObject.SetActive(true);
         Spawner.SetActive(false);
+        
     }
 
     // Resume the bar 
@@ -80,6 +82,7 @@ public class ProgressBar : MonoBehaviour
         SceneManager.LoadScene("Runner Game");
         //Cons_1Button.gameObject.SetActive(false);
         //Cons_2Button.gameObject.SetActive(false);
+        
         
     }
 

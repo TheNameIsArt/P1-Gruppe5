@@ -8,15 +8,18 @@ public class UIScript : MonoBehaviour
 {
     public bool gameIsOver;
     public int health = 3;
-
+   
     public TMP_Text Lives;
     public GameObject GameOverSceen;
+    
+
     // Start is called before the first frame update
     void Start()
     {
         
-        
+
     }
+   
     // Update is called once per frame
     void Update()
     {
@@ -35,11 +38,18 @@ public class UIScript : MonoBehaviour
         Time.timeScale = 0;
         
     }
+   
     public void ResetLevel()
     {
         Time.timeScale = 1;
+        gameIsOver = false;
+        health = 3;
+        
+        GameOverSceen.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); // loads current scene
+        
     }
+   
     void Pausebutton() 
     {
         if (Time.timeScale > 0)
