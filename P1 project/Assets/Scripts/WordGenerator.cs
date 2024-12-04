@@ -40,14 +40,14 @@ public class WordGeneratorV3 : MonoBehaviour
 
         for (int i = 0; i < SpeechScript.audioClips.Length; i++)
         {
-            // Få navnet på lydklippet
+            // Fï¿½ navnet pï¿½ lydklippet
             string originalName = SpeechScript.audioClips[i].name;
 
             // Fjern slutningen af navnet (del efter den sidste underscore "_")
             int underscoreIndex = originalName.LastIndexOf('_');
             if (underscoreIndex >= 0)
             {
-                DanokWords[i] = originalName.Substring(0, underscoreIndex); // Behold kun delen før "_"
+                DanokWords[i] = originalName.Substring(0, underscoreIndex); // Behold kun delen fï¿½r "_"
             }
             else
             {
