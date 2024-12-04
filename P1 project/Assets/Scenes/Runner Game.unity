@@ -1079,6 +1079,11 @@ RectTransform:
   m_AnchoredPosition: {x: -207, y: 383}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1412365524 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5450747607008009921, guid: 570ca8430afff7145916d6b07340774b, type: 3}
+  m_PrefabInstance: {fileID: 2303966880356358059}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1530908128
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,6 +1417,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1761380312 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3492898805294633309, guid: 570ca8430afff7145916d6b07340774b, type: 3}
+  m_PrefabInstance: {fileID: 2303966880356358059}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1798477549 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5919879887207294846, guid: 570ca8430afff7145916d6b07340774b, type: 3}
+  m_PrefabInstance: {fileID: 2303966880356358059}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1836647942
 GameObject:
   m_ObjectHideFlags: 0
@@ -1738,6 +1753,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 288530271914708970, guid: 570ca8430afff7145916d6b07340774b, type: 3}
+      propertyPath: hearts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 288530271914708970, guid: 570ca8430afff7145916d6b07340774b, type: 3}
+      propertyPath: hearts.Array.data[0]
+      value: 
+      objectReference: {fileID: 1412365524}
+    - target: {fileID: 288530271914708970, guid: 570ca8430afff7145916d6b07340774b, type: 3}
+      propertyPath: hearts.Array.data[1]
+      value: 
+      objectReference: {fileID: 1761380312}
+    - target: {fileID: 288530271914708970, guid: 570ca8430afff7145916d6b07340774b, type: 3}
+      propertyPath: hearts.Array.data[2]
+      value: 
+      objectReference: {fileID: 1798477549}
     - target: {fileID: 361561845235984426, guid: 570ca8430afff7145916d6b07340774b, type: 3}
       propertyPath: fillSpeed
       value: 0.008
@@ -1746,6 +1777,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2552189487394095429, guid: 570ca8430afff7145916d6b07340774b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2779613471219091674, guid: 570ca8430afff7145916d6b07340774b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
