@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Marcus Danok.unity
     guid: a5d56bb33e28d3b47a00449608fa0e91
+  - enabled: 1
+    path: Assets/Scenes/Win Scene.unity
+    guid: a4076cc5a48f2dc44821bbedf107baed
   m_configObjects: {}

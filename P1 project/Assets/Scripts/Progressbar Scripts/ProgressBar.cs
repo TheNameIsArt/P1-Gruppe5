@@ -15,17 +15,18 @@ public class ProgressBar : MonoBehaviour
     public Button Cons_1Button;
     public Button Cons_2Button;
     public static ProgressBar Instance;
+    CheckpointBehavior CheckpointBehavior;
     
 
     public GameObject Spawner;
 
-    private List<float> pausePoints = new List<float> {0.25f, 0.5f, 0.75f}; //Pause points
+    private List<float> pausePoints = new List<float> {0.25f, 0.5f, 0.75f, 1f}; //Pause points
     
     private void Awake()
     {
         progressBar = gameObject.GetComponent<Slider>();
         Spawner = GameObject.Find("Spawner");
-        
+        CheckpointBehavior = GameObject.Find("ColorController").GetComponent<CheckpointBehavior>();
       
 
         
@@ -47,9 +48,19 @@ public class ProgressBar : MonoBehaviour
             // Check if we hit a pause point
             foreach (float pausePoint in pausePoints)
             {
+               
                 if (progressBar.value >= pausePoint && progressBar.value < pausePoint + fillSpeed * Time.deltaTime)
                 {
-                    PauseProgress();
+                    if (pausePoint == pausePoints[pausePoints.Count - 1]) // Check if it's the last pause point
+                    {
+                        // Perform a different action for the last pause point
+                        Debug.Log("Final point reached!");
+                        SceneManager.LoadScene("Win Scene"); // Example: Transition to a "Win" scene
+                    }
+                    else
+                    {
+                        PauseProgress();
+                    }
                     break;
                 }
             }
@@ -66,11 +77,17 @@ public class ProgressBar : MonoBehaviour
     // Button appears
     public void PauseProgress()
     {
+        
+        
         isPaused = true;
         SceneManager.LoadScene("Marcus Danok");
         //Cons_1Button.gameObject.SetActive(true);
         //Cons_2Button.gameObject.SetActive(true);
-        Spawner.SetActive(false);
+        if(Spawner != null)
+        {
+            Spawner.SetActive(false);
+        }
+            
         
     }
 
@@ -79,11 +96,31 @@ public class ProgressBar : MonoBehaviour
     public void ResumeProgress()
     {
         isPaused = false;
+
         SceneManager.LoadScene("Runner Game");
         //Cons_1Button.gameObject.SetActive(false);
         //Cons_2Button.gameObject.SetActive(false);
         
         
     }
+    public void ResetProgressBar()
+    {
+        // Reset slider value
+        if (progressBar != null)
+        {
+            progressBar.value = 0f; // Reset slider to zero
+        }
 
+        // Reset target progress
+        targetProgress = 0f;
+
+        // Reset pause state
+        isPaused = false;
+
+        // Reset other UI elements (if necessary)
+        if (Spawner != null) Spawner.SetActive(true);
+
+        IncrementProgress(1f);
+        Debug.Log("Progress bar has been reset!");
+    }
 }

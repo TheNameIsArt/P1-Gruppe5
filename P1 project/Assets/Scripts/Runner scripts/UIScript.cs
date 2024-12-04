@@ -12,11 +12,16 @@ public class UIScript : MonoBehaviour
    
     public TMP_Text Lives;
     public GameObject GameOverSceen;
+    ProgressBar ProgressBar;
+
+    public int correctAnswersGotten;
+    public int incorrectAnswersGotten;
     
 
     // Start is called before the first frame update
     void Start()
     {
+        ProgressBar = GameObject.Find("Progress Bar").GetComponent<ProgressBar>();
         UpdateHearts();
     }
    
@@ -81,7 +86,9 @@ public class UIScript : MonoBehaviour
         health = 3;
         
         GameOverSceen.SetActive(false);
+        ProgressBar.ResetProgressBar();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); // loads current scene
+        
         
     }
    
