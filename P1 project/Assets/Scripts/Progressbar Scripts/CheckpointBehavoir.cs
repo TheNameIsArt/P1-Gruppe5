@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class CheckpointBehavior : MonoBehaviour
 {
@@ -12,7 +14,6 @@ public class CheckpointBehavior : MonoBehaviour
     {
         if (circleSprites.Length == 0) return;
 
-        
         circleSprites[currentIndex].color = Color.green; // Change current circle to green
         currentIndex = (currentIndex + 1) % circleSprites.Length; // Move to the next circle
     }
@@ -21,9 +22,18 @@ public class CheckpointBehavior : MonoBehaviour
     public void IncorrectButton()
     {
         if (circleSprites.Length == 0) return;
-
         
         circleSprites[currentIndex].color = Color.red; // Change current circle to red
         currentIndex = (currentIndex + 1) % circleSprites.Length; // Move to the next circle
     }
+    
+    public void ResetCircles()
+    {
+        currentIndex = 0;
+        for (int i = 0; i < circleSprites.Length; i++)
+        {
+            circleSprites[i].color = Color.white;
+        }
+    }
+
 }

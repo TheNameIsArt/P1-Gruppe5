@@ -13,6 +13,7 @@ public class UIScript : MonoBehaviour
     public TMP_Text Lives;
     public GameObject GameOverSceen;
     ProgressBar ProgressBar;
+    CheckpointBehavior CheckpointBehavior;
 
     public int correctAnswersGotten;
     public int incorrectAnswersGotten;
