@@ -6,26 +6,70 @@ using UnityEngine.SceneManagement;
 
 public class UIScript : MonoBehaviour
 {
+    public GameObject [] hearts;
     public bool gameIsOver;
     public int health = 3;
-
+   
     public TMP_Text Lives;
     public GameObject GameOverSceen;
+    ProgressBar ProgressBar;
+    CheckpointBehavior CheckpointBehavior;
+
+    public int correctAnswersGotten;
+    public int incorrectAnswersGotten;
+    
+
     // Start is called before the first frame update
     void Start()
     {
-        
-        
+        ProgressBar = GameObject.Find("Progress Bar").GetComponent<ProgressBar>();
+        UpdateHearts();
     }
+   
     // Update is called once per frame
     void Update()
+    {
+        UpdateHearts();
+    }
+
+    void LateUpdate()
     {
         if (gameIsOver == false)
         {
             Lives.text = "Lives: " + health;
         }
-       
     }
+
+    private void UpdateHearts()
+    {
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            if (i < health)
+            {
+                hearts[i].SetActive(true); 
+            }
+            else
+            {
+                hearts[i].SetActive(false); 
+            }
+        }
+    }
+
+    public void LoseHealth()
+    {
+        if (health > 0)
+        {
+            health--;
+            UpdateHearts();
+
+            if (health <= 0)
+            {
+                gameOver();
+            }
+        }
+    }
+
+
 
     public void gameOver()
     {
@@ -35,11 +79,20 @@ public class UIScript : MonoBehaviour
         Time.timeScale = 0;
         
     }
+   
     public void ResetLevel()
     {
         Time.timeScale = 1;
+        gameIsOver = false;
+        health = 3;
+        
+        GameOverSceen.SetActive(false);
+        ProgressBar.ResetProgressBar();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); // loads current scene
+        
+        
     }
+   
     void Pausebutton() 
     {
         if (Time.timeScale > 0)

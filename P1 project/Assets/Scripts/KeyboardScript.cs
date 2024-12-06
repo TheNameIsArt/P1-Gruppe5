@@ -10,6 +10,7 @@ public class KeyboardScript : MonoBehaviour
     //logik til genkendelse af ord
     public GameObject Logic;
     public WordGeneratorV3 wordGenerator;
+    bool NoMoreTries = false;
 
     //Referencer og variabler til visning af kode
     public string Letter;
@@ -19,6 +20,8 @@ public class KeyboardScript : MonoBehaviour
     //Referencer til VoiceChooser scriptet
     public VoiceChooserV2 SpeechScript;
     public GameObject VoicePlayer;
+    CheckpointBehavior CheckpointBehavior;
+    UIScript UIScript;
 
     //Alt til cooldowns på buttons
     private bool isOnCooldown = false;
@@ -26,9 +29,15 @@ public class KeyboardScript : MonoBehaviour
     float cooldownTime = 4f;
     float cooldownTimeBM = 4f;
 
+    private ProgressBar progressBar;
+
     //Referencer til SpriteSpawner
     //public SpriteSpawnerScript SpriteSpawnerScript;
     public GameObject SpriteSpawner;
+
+    private int triesLeft = 3; //Tries left before you fail the word.
+    public TMP_Text triesText;
+
     private void Start()
     {
         //Her referere vi til forskellige gameobjects og scripts, og sætter dem lig med
@@ -40,6 +49,10 @@ public class KeyboardScript : MonoBehaviour
         Logic = GameObject.Find("Logic");
         wordGenerator = Logic.GetComponent<WordGeneratorV3>();
 
+
+        progressBar = GameObject.Find("DontDestroyOnLoad").GetComponentInChildren<ProgressBar>();
+        CheckpointBehavior = GameObject.Find("ColorController").GetComponent<CheckpointBehavior>();
+        UIScript = GameObject.Find("UI").GetComponent<UIScript>();
 
     }
     //script der bruges til størstedelen af alle knapper
@@ -54,6 +67,7 @@ public class KeyboardScript : MonoBehaviour
         {
             Debug.Log("Correct answer!");
             ShowThumbsUp(); //Korrekt svar
+            
             wordGenerator.DanokWordTxt.text = wordGenerator.ChosenWord;
             if (!isOnCooldown)
             {
@@ -142,6 +156,9 @@ public class KeyboardScript : MonoBehaviour
     {
         SpeechScript.ThumbsUp.SetActive(true);
         Invoke("HideThumbsUp", 1f);
+        CheckpointBehavior.CorrectButton();
+        UIScript.correctAnswersGotten += 1;
+        progressBar.ResumeProgress();
     }
     private void HideThumbsUp()
     {
@@ -150,7 +167,16 @@ public class KeyboardScript : MonoBehaviour
     private void ShowThumbsDown()
     {
         SpeechScript.ThumbsDown.SetActive(true);
+        triesLeft = triesLeft - 1;
+        triesText.text = "Tries left: " + triesLeft.ToString();
         Invoke("HideThumbsDown", 1f);
+        if (triesLeft <= 0 && !NoMoreTries)
+        {
+            NoMoreTries = true;
+            CheckpointBehavior.IncorrectButton();
+            UIScript.incorrectAnswersGotten += 1;
+            progressBar.ResumeProgress();
+        }
     }
     private void HideThumbsDown()
     {
