@@ -17,4 +17,9 @@ public class MainButton : MonoBehaviour
     {
         SceneManager.LoadScene(2);
     }
+
+    public void LoadShop()
+    {
+        SceneManager.LoadScene(3);
+    }
 }

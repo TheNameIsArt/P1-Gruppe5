@@ -375,7 +375,7 @@ GameObject:
   - component: {fileID: 1352187535}
   - component: {fileID: 1352187534}
   m_Layer: 5
-  m_Name: SettingsBtn
+  m_Name: BackBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -476,7 +476,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1553068741, guid: 72b7099466544e944a2671b5d5afbe74, type: 3}
+  m_Sprite: {fileID: -1544137573, guid: 6475ec96e9d255b4891317576a1082d3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
