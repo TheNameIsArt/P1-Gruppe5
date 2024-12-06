@@ -37,6 +37,9 @@ public class KeyboardScript : MonoBehaviour
 
     private int triesLeft = 3; //Tries left before you fail the word.
     public TMP_Text triesText;
+    public TMP_Text goldToGainTxt;
+    int goldToGain = 20;
+    int goldToGainReset;
 
     private void Start()
     {
@@ -71,12 +74,7 @@ public class KeyboardScript : MonoBehaviour
             wordGenerator.DanokWordTxt.text = wordGenerator.ChosenWord;
             if (!isOnCooldown)
             {
-                /*if (SpriteSpawnerScript.clickCount == 8)
-                {
-                    SceneManager.LoadScene("TakeSelfieScene");
-                }*/
-                Invoke("NextWord", 3f);
-                //SpriteSpawnerScript.OnButtonClick();
+                
                 StartCooldown();
             }
             else
@@ -93,10 +91,7 @@ public class KeyboardScript : MonoBehaviour
     }
 
 
-    void NextWord()
-    {
-        wordGenerator.WordChooser();
-    }
+   
 
     public void Gentag()
     {
@@ -109,27 +104,9 @@ public class KeyboardScript : MonoBehaviour
             Debug.LogError("VoiceChooser is null. Cannot play audio!");
         }
     }
-    public void BogstavMangler() //Knap til hvis man ikke kan finde konsonanten og vil videre.
-    {
+   
 
-        if (!isOnCooldownBM)
-        {
-            /*if (SpriteSpawnerScript.clickCount == 8)
-            {
-                SceneManager.LoadScene("TakeSelfieScene");
-            }*/
-            Debug.Log("BogstavMangler");
-            NextWord();
-            StartCooldownBM();
-            //SpriteSpawnerScript.OnButtonClick();
-
-        }
-        else
-        {
-            Debug.Log("Button is on cooldown! Please wait.");
-        }
-
-    }
+    
     private void StartCooldown()
     {
         isOnCooldown = true;
@@ -158,6 +135,7 @@ public class KeyboardScript : MonoBehaviour
         Invoke("HideThumbsUp", 1f);
         CheckpointBehavior.CorrectButton();
         UIScript.correctAnswersGotten += 1;
+        UIScript.Gold = UIScript.Gold + goldToGain;
         progressBar.ResumeProgress();
     }
     private void HideThumbsUp()
@@ -168,7 +146,9 @@ public class KeyboardScript : MonoBehaviour
     {
         SpeechScript.ThumbsDown.SetActive(true);
         triesLeft = triesLeft - 1;
-        triesText.text = "Tries left: " + triesLeft.ToString();
+        goldToGain = goldToGain / 2;
+        goldToGainTxt.text = "Guld du kan vinde: " + goldToGain;
+        triesText.text = "Forsøg tilbage: " + triesLeft.ToString();
         Invoke("HideThumbsDown", 1f);
         if (triesLeft <= 0 && !NoMoreTries)
         {
