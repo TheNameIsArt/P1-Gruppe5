@@ -23,7 +23,7 @@ public class KeyboardScript : MonoBehaviour
     CheckpointBehavior CheckpointBehavior;
     UIScript UIScript;
 
-    //Alt til cooldowns på buttons
+    //Alt til cooldowns pï¿½ buttons
     private bool isOnCooldown = false;
     private bool isOnCooldownBM = false;
     float cooldownTime = 4f;
@@ -43,7 +43,7 @@ public class KeyboardScript : MonoBehaviour
 
     private void Start()
     {
-        //Her referere vi til forskellige gameobjects og scripts, og sætter dem lig med
+        //Her referere vi til forskellige gameobjects og scripts, og sï¿½tter dem lig med
         //de variabler som vi tidligere lavede
         VoicePlayer = GameObject.Find("VoicePlayer");
         SpeechScript = VoicePlayer.GetComponent<VoiceChooserV2>();
@@ -58,12 +58,12 @@ public class KeyboardScript : MonoBehaviour
         UIScript = GameObject.Find("UI").GetComponent<UIScript>();
 
     }
-    //script der bruges til størstedelen af alle knapper
+    //script der bruges til stï¿½rstedelen af alle knapper
     public void TaskOnClick(GameObject button)
     {
-        //Her finder vi det ord vi skal gætte fra word generator
+        //Her finder vi det ord vi skal gï¿½tte fra word generator
         Letter = wordGenerator.LetterString;
-        //her sætter vi buttonText lig med det bogstav der står på knappen
+        //her sï¿½tter vi buttonText lig med det bogstav der stï¿½r pï¿½ knappen
         buttonText = button.GetComponentInChildren<TextMeshProUGUI>();
 
         if (Letter == buttonText.text)
@@ -148,7 +148,7 @@ public class KeyboardScript : MonoBehaviour
         triesLeft = triesLeft - 1;
         goldToGain = goldToGain / 2;
         goldToGainTxt.text = "Guld du kan vinde: " + goldToGain;
-        triesText.text = "Forsøg tilbage: " + triesLeft.ToString();
+        triesText.text = "Forsï¿½g tilbage: " + triesLeft.ToString();
         Invoke("HideThumbsDown", 1f);
         if (triesLeft <= 0 && !NoMoreTries)
         {
