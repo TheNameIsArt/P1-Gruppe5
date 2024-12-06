@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 277fb061aa16c3144ae5f0451630149c
+guid: 72b7099466544e944a2671b5d5afbe74
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,43 +123,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: start
+      name: main-knapper_0
       rect:
         serializedVersion: 2
-        x: 4119
-        y: 2227
-        width: 1317
-        height: 606
+        x: 0
+        y: 1545
+        width: 1314
+        height: 601
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd2a91fe0d34c70449da9b6fb0db5b80
-      internalID: -1314146701
+      spriteID: 3b63628630b2cc84a9ea781df38f678a
+      internalID: -1933468231
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: settings
+      name: main-knapper_1
       rect:
         serializedVersion: 2
-        x: 4124
-        y: 1440
-        width: 1318
-        height: 606
+        x: 6
+        y: 759
+        width: 1313
+        height: 602
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81cd5a5e3e2c1c547be5f2e930e222a2
-      internalID: -2016383989
+      spriteID: 3ee4b89dce2b0884baca9cd969166246
+      internalID: 1045334626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main-knapper_2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 0
+        width: 1314
+        height: 601
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1929458affdc95846a1fa1d79a36d187
+      internalID: 1553068741
       vertices: []
       indices: 
       edges: []
@@ -175,8 +196,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      settings: -2016383989
-      start: -1314146701
+      main-knapper_0: -1933468231
+      main-knapper_1: 1045334626
+      main-knapper_2: 1553068741
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
