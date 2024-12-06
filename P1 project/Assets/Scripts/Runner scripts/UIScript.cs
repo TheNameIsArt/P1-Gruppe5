@@ -11,12 +11,16 @@ public class UIScript : MonoBehaviour
     public int health = 3;
    
     public TMP_Text Lives;
+    public TMP_Text GoldTxt;
     public GameObject GameOverSceen;
     ProgressBar ProgressBar;
     CheckpointBehavior CheckpointBehavior;
+    public GameObject ProgressBarObject;
+    public GameObject Hearts;
 
     public int correctAnswersGotten;
     public int incorrectAnswersGotten;
+    public int Gold;
     
 
     // Start is called before the first frame update
@@ -24,12 +28,14 @@ public class UIScript : MonoBehaviour
     {
         ProgressBar = GameObject.Find("Progress Bar").GetComponent<ProgressBar>();
         UpdateHearts();
+        
     }
    
     // Update is called once per frame
     void Update()
     {
         UpdateHearts();
+        UpdateGold();
     }
 
     void LateUpdate()
@@ -103,5 +109,16 @@ public class UIScript : MonoBehaviour
         { 
             Time.timeScale = 1;
         }
+    }
+
+    public void WinScene()
+    {
+        ProgressBarObject.SetActive(false);
+        Hearts.SetActive(false);
+    }
+
+    void UpdateGold()
+    {
+        GoldTxt.text = "Guld: " + Gold;
     }
 }
