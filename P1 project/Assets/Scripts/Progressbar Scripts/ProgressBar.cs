@@ -89,7 +89,7 @@ public class ProgressBar : MonoBehaviour
     {
         isPaused = false;
 
-        SceneManager.LoadScene("Runner Game");
+        SceneManager.LoadScene("Level1");
         //Cons_1Button.gameObject.SetActive(false);
         //Cons_2Button.gameObject.SetActive(false);
 
