@@ -1271,6 +1271,7 @@ MonoBehaviour:
   - -5
   - -3.5
   - -1.5
+  LateralLaneMoveSpeed: 10
 --- !u!82 &1530908137
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1891,6 +1892,10 @@ PrefabInstance:
       propertyPath: Spawner
       value: 
       objectReference: {fileID: 425067397}
+    - target: {fileID: 361561845235984426, guid: 570ca8430afff7145916d6b07340774b, type: 3}
+      propertyPath: fillSpeed
+      value: 0.012
+      objectReference: {fileID: 0}
     - target: {fileID: 1999892368212084649, guid: 570ca8430afff7145916d6b07340774b, type: 3}
       propertyPath: m_Camera
       value: 

@@ -5,7 +5,7 @@ public class LaneMover : MonoBehaviour
     public int laneNumber;
     public float[] laneYPositions;
 
-    const float LateralLaneMoveSpeed = 5f;
+    public float LateralLaneMoveSpeed = 5f;
 
     void Update()
     {
