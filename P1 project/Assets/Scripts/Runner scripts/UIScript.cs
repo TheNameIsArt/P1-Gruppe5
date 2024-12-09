@@ -121,4 +121,12 @@ public class UIScript : MonoBehaviour
     {
         GoldTxt.text = "Guld: " + Gold;
     }
+
+    public void NextLvl()
+    {
+        ProgressBarObject.SetActive(true);
+        Hearts.SetActive(true);
+        ProgressBar.ResetProgressBar();
+        health = 3;
+    }
 }

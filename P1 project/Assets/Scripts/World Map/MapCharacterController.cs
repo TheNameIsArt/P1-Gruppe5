@@ -8,6 +8,7 @@ public class MapCharacterController : MonoBehaviour
 
     private int currentLevelIndex = 0; // Track the current level index
     private bool isMoving = false; // Flag to check if the character is moving
+    UIScript UIScript;
 
     void Start()
     {
@@ -16,6 +17,8 @@ public class MapCharacterController : MonoBehaviour
 
         // Automatically move the character to the next level position
         MoveToNextLevel(currentLevelIndex);
+
+        UIScript = GameObject.FindGameObjectWithTag("UI").GetComponent<UIScript>();
     }
 
     void Update()
@@ -58,6 +61,7 @@ public class MapCharacterController : MonoBehaviour
     void StartLevel(int levelIndex)
     {
         Debug.Log("Starting Level: " + levelIndex);
+        UIScript.NextLvl();
         SceneManager.LoadScene("Level" + (levelIndex + 1)); // Example of loading levels
     }
 }
