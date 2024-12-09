@@ -2,11 +2,10 @@ using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using static UnityEditor.Progress;
+
 using System.Linq;
 using System.Collections.Generic;
-using UnityEngine.WSA;
-using System.Collections;
+
 
 public class DANOKWordChooser : MonoBehaviour
 {
