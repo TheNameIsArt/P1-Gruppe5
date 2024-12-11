@@ -12,8 +12,8 @@ public class VoiceChooserV2 : MonoBehaviour
     public WordGeneratorV3 WordGenerator;    // Reference to the WordGeneratorV3 script.
     private string[] Voices = { "_F1", "_F2", "_M1", "_M2" }; // Voice types. Not currently implemented.
 
-    public GameObject ThumbsUp;  // Placeholder, not yet implemented.
-    public GameObject ThumbsDown; // Placeholder, not yet implemented.
+    public GameObject ThumbsUp;  // Gameobject for if answered correct.
+    public GameObject ThumbsDown; // Gameobject for if answered wrong.
 
     void Awake()
     {

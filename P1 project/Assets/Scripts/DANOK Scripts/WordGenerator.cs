@@ -4,8 +4,6 @@ using TMPro; // Used for TextMeshPro components.
 
 public class WordGeneratorV3 : MonoBehaviour
 {
-    // An audio clip that may be used elsewhere in the class.
-    public AudioClip myClips;
 
     // Array to store words derived from audio clip names.
     public string[] DanokWords;
