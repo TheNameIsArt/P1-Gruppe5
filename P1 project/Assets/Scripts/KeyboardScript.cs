@@ -7,118 +7,113 @@ using UnityEngine.SceneManagement;
 
 public class KeyboardScript : MonoBehaviour
 {
-    //logik til genkendelse af ord
-    public GameObject Logic;
-    public WordGeneratorV3 wordGenerator;
-    bool NoMoreTries = false;
+    //Script used to track if a button with a letter corespons to the correct letter missing in the chosen word from wordGenerator
 
-    //Referencer og variabler til visning af kode
-    public string Letter;
-    private TextMeshProUGUI buttonText;
-    public TMP_Text WordTxt;
 
-    //Referencer til VoiceChooser scriptet
-    public VoiceChooserV2 SpeechScript;
-    public GameObject VoicePlayer;
-    CheckpointBehavior CheckpointBehavior;
-    UIScript UIScript;
+    // Logic for recognizing words
+    public GameObject Logic; // A reference to the GameObject containing the logic for the word-guessing game
+    public WordGeneratorV3 wordGenerator; // Reference to the script handling word generation
+    bool NoMoreTries = false; // Tracks if the player has no more attempts left
 
-    //Alt til cooldowns p� buttons
-    private bool isOnCooldown = false;
-    private bool isOnCooldownBM = false;
-    float cooldownTime = 4f;
-    float cooldownTimeBM = 4f;
+    // References for displaying the code (letters and UI)
+    public string Letter; // The correct letter the player is supposed to guess
+    private TextMeshProUGUI buttonText; // Reference to the text on a button
+    public TMP_Text WordTxt; // UI element to display the word
 
-    private ProgressBar progressBar;
+    // References for voice feedback
+    public VoiceChooserV2 SpeechScript; // Handles audio playback
+    public GameObject VoicePlayer; // GameObject controlling the audio
 
-    //Referencer til SpriteSpawner
-    //public SpriteSpawnerScript SpriteSpawnerScript;
-    public GameObject SpriteSpawner;
+    // Other references
+    CheckpointBehavior CheckpointBehavior; // Controls behaviors related to checkpoints
+    UIScript UIScript; // Manages UI-related actions and data
 
-    private int triesLeft = 3; //Tries left before you fail the word.
-    public TMP_Text triesText;
-    public TMP_Text goldToGainTxt;
-    int goldToGain = 20;
-    int goldToGainReset;
+    // Button cooldown logic
+    private bool isOnCooldown = false; // Tracks if buttons are on cooldown
+    private bool isOnCooldownBM = false; // Tracks a secondary cooldown for buttons
+    float cooldownTime = 4f; // Cooldown time for buttons
+    float cooldownTimeBM = 4f; // Cooldown time for secondary buttons
+
+    private ProgressBar progressBar; // Reference to the progress bar
+
+    // Attempts and rewards
+    private int triesLeft = 3; // Number of attempts allowed for the player
+    public TMP_Text triesText; // UI element showing remaining attempts
+    public TMP_Text goldToGainTxt; // UI element displaying potential rewards
+    int goldToGain = 20; // Gold reward for guessing correctly
+    int goldToGainReset; // Keeps track of the original gold reward
 
     private void Start()
     {
-        //Her referere vi til forskellige gameobjects og scripts, og s�tter dem lig med
-        //de variabler som vi tidligere lavede
+        // Initialize references to GameObjects and scripts
         VoicePlayer = GameObject.Find("VoicePlayer");
         SpeechScript = VoicePlayer.GetComponent<VoiceChooserV2>();
-        //SpriteSpawner = GameObject.Find("SpriteSpawner");
-        //SpriteSpawnerScript = SpriteSpawner.GetComponent<SpriteSpawnerScript>();
         Logic = GameObject.Find("Logic");
         wordGenerator = Logic.GetComponent<WordGeneratorV3>();
 
-
+        // Find the progress bar and checkpoint-related scripts
         progressBar = GameObject.Find("DontDestroyOnLoad").GetComponentInChildren<ProgressBar>();
         CheckpointBehavior = GameObject.Find("ColorController").GetComponent<CheckpointBehavior>();
         UIScript = GameObject.Find("UI").GetComponent<UIScript>();
-
     }
-    //script der bruges til st�rstedelen af alle knapper
+
+   
+    //Task used on all buttons with letters
     public void TaskOnClick(GameObject button)
     {
-        //Her finder vi det ord vi skal g�tte fra word generator
-        Letter = wordGenerator.LetterString;
-        //her s�tter vi buttonText lig med det bogstav der st�r p� knappen
-        buttonText = button.GetComponentInChildren<TextMeshProUGUI>();
+        Letter = wordGenerator.LetterString; // Get the correct letter from the word generator
+        buttonText = button.GetComponentInChildren<TextMeshProUGUI>(); // Fetch the button's letter text
 
-        if (Letter == buttonText.text)
+        if (Letter == buttonText.text) // Correct guess
         {
             Debug.Log("Correct answer!");
-            ShowThumbsUp(); //Korrekt svar
-            
-            wordGenerator.DanokWordTxt.text = wordGenerator.ChosenWord;
+            ShowThumbsUp(); // Trigger thumbs-up animation and effects
+            wordGenerator.DanokWordTxt.text = wordGenerator.ChosenWord; // Update UI to show the full word
             if (!isOnCooldown)
             {
-                
-                StartCooldown();
+                StartCooldown(); // Begin cooldown for the button to prevent spamming
             }
             else
             {
                 Debug.Log("Button is on cooldown! Please wait.");
             }
         }
-        else
+        else // Incorrect guess
         {
-            ShowThumbsDown(); //Forkert svar
+            ShowThumbsDown(); // Trigger thumbs-down animation and effects
             Debug.Log("Wrong! Try again.");
         }
-
     }
 
 
-   
 
+    //Repeat button functions
     public void Gentag()
     {
         if (SpeechScript != null)
         {
-            SpeechScript.PlaySameAudio();
+            SpeechScript.PlaySameAudio(); // Replay the current audio clip
         }
         else
         {
             Debug.LogError("VoiceChooser is null. Cannot play audio!");
         }
     }
-   
 
-    
+
+
     private void StartCooldown()
     {
         isOnCooldown = true;
-        Invoke("ResetCooldown", cooldownTime);
+        Invoke("ResetCooldown", cooldownTime); // Automatically reset after cooldownTime seconds
     }
 
     private void ResetCooldown()
     {
-        isOnCooldown = false;
+        isOnCooldown = false; // Reset the button state
         Debug.Log("Cooldown reset. Button can be pressed again.");
     }
-    private void StartCooldownBM()
+    /*private void StartCooldownBM()
     {
         isOnCooldownBM = true;
         Invoke("ResetCooldownBM", cooldownTimeBM);
@@ -128,39 +123,42 @@ public class KeyboardScript : MonoBehaviour
     {
         isOnCooldownBM = false;
         Debug.Log("Cooldown MB reset. Button can be pressed again.");
-    }
+    }*/
     private void ShowThumbsUp()
     {
-        SpeechScript.ThumbsUp.SetActive(true);
-        Invoke("HideThumbsUp", 1f);
-        CheckpointBehavior.CorrectButton();
-        UIScript.correctAnswersGotten += 1;
-        UIScript.Gold = UIScript.Gold + goldToGain;
-        progressBar.ResumeProgress();
+        SpeechScript.ThumbsUp.SetActive(true); // Show thumbs-up animation
+        Invoke("HideThumbsUp", 1f); // Hide after 1 second
+        CheckpointBehavior.CorrectButton(); // Update game state for a correct answer
+        UIScript.correctAnswersGotten += 1; // Increment correct answers count
+        UIScript.Gold += goldToGain; // Add gold reward
+        progressBar.ResumeProgress(); // Update progress
     }
+
     private void HideThumbsUp()
     {
-        SpeechScript.ThumbsUp.SetActive(false);
+        SpeechScript.ThumbsUp.SetActive(false); // Hides thumbs-up animation
     }
     private void ShowThumbsDown()
     {
-        SpeechScript.ThumbsDown.SetActive(true);
-        triesLeft = triesLeft - 1;
-        goldToGain = goldToGain / 2;
-        goldToGainTxt.text = "Guld du kan vinde: " + goldToGain;
-        triesText.text = "Fors�g tilbage: " + triesLeft.ToString();
-        Invoke("HideThumbsDown", 1f);
+        SpeechScript.ThumbsDown.SetActive(true); // Show thumbs-down animation
+        triesLeft--; // Decrement remaining tries
+        goldToGain /= 2; // Halve the gold reward
+        goldToGainTxt.text = "Guld du kan vinde: " + goldToGain; // Updates goldToGainTxt to correct amount of gold
+        triesText.text = "Forsøg tilbage: " + triesLeft; // Updates tries left to correct amount of tries
+
+        Invoke("HideThumbsDown", 1f); // Hide after 1 second
         if (triesLeft <= 0 && !NoMoreTries)
         {
-            NoMoreTries = true;
-            CheckpointBehavior.IncorrectButton();
-            UIScript.incorrectAnswersGotten += 1;
-            progressBar.ResumeProgress();
+            NoMoreTries = true; // Prevent further tries
+            CheckpointBehavior.IncorrectButton(); // Trigger incorrect logic
+            UIScript.incorrectAnswersGotten += 1; // Increment incorrect answers count
+            progressBar.ResumeProgress(); // Update progress
         }
     }
+
     private void HideThumbsDown()
     {
-        SpeechScript.ThumbsDown.SetActive(false);
+        SpeechScript.ThumbsDown.SetActive(false); // Hides thumbs-down animation
     }
 }
 
