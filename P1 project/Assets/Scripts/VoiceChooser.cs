@@ -1,29 +1,33 @@
-
 using UnityEngine;
 using System.Collections.Generic;
 
 public class VoiceChooserV2 : MonoBehaviour
 {
-    public AudioSource audioSource;          // Reference til AudioSource
-    public AudioClip[] audioClips;           // Array med alle AudioClips
-    private Dictionary<string, AudioClip> audioClipMap; // Map til hurtig adgang til klip
+    public AudioSource audioSource;          // Reference to AudioSource component.
+    public AudioClip[] audioClips;           // Array of all AudioClips.
+    private Dictionary<string, AudioClip> audioClipMap; // Dictionary for quick access to clips by name.
 
-    private string audioClipName;            // Dynamisk genereret navn på lydklip
-    public GameObject Logic;                 // Reference til Logic-objektet
-    public WordGeneratorV3 WordGenerator;      // Reference til WordGenerator-scriptet
-    private string[] Voices = { "_F1", "_F2", "_M1", "_M2" }; // Stemmetyper
+    private string audioClipName;            // Dynamically generated name of the audio clip.
+    public GameObject Logic;                 // Reference to the Logic GameObject.
+    public WordGeneratorV3 WordGenerator;    // Reference to the WordGeneratorV3 script.
+    private string[] Voices = { "_F1", "_F2", "_M1", "_M2" }; // Voice types. Not currently implemented.
 
-    public GameObject ThumbsUp; //Does nothing rn
-    public GameObject ThumbsDown; //Does nothing rn
+    public GameObject ThumbsUp;  // Placeholder, not yet implemented.
+    public GameObject ThumbsDown; // Placeholder, not yet implemented.
+
     void Awake()
     {
-        // Initialiser komponenter og references
+        // Initialize AudioSource component.
         audioSource = GetComponent<AudioSource>();
+
+        // Find the Logic GameObject and its WordGeneratorV3 component.
         Logic = GameObject.Find("Logic");
         WordGenerator = Logic.GetComponent<WordGeneratorV3>();
+
+        // Load all audio clips from the "Audio/F1" resources folder.
         audioClips = Resources.LoadAll<AudioClip>("Audio/F1");
 
-        // Initialiser dictionary til at mappe lydklip med deres navne
+        // Initialize the dictionary to map audio clip names to AudioClip objects.
         audioClipMap = new Dictionary<string, AudioClip>();
         foreach (var audioClip in audioClips)
         {
@@ -32,23 +36,27 @@ public class VoiceChooserV2 : MonoBehaviour
                 audioClipMap.Add(audioClip.name, audioClip);
             }
         }
+
+        // Debug message to confirm loaded audio clips.
         Debug.Log($"Loaded {audioClips.Length} audio clips.");
     }
 
+    // Method to play a randomly selected audio clip.
     public void PlayAudio()
     {
+        // Ensure the WordGenerator reference is valid.
         if (WordGenerator == null)
         {
             Debug.LogError("WordGenerator is not assigned.");
             return;
         }
 
-        // Vælg en tilfældig stemme (Pt er der kun f1)
+        // Choose a random voice type (currently defaults to F1).
         int randomIndex = Random.Range(0, Voices.Length);
-        audioClipName = WordGenerator.ChosenWord + Voices[0];
+        audioClipName = WordGenerator.ChosenWord + Voices[0]; // Change to Voices[randomIndex] if needed.
         Debug.Log("Generated AudioClipName: " + audioClipName);
 
-        // Spil lydklippet, hvis det findes i mappen
+        // Attempt to play the audio clip if it exists in the dictionary.
         if (audioClipMap.TryGetValue(audioClipName, out AudioClip clip))
         {
             audioSource.clip = clip;
@@ -60,7 +68,8 @@ public class VoiceChooserV2 : MonoBehaviour
         }
     }
 
-    public void PlaySameAudio() //Mulighed for gentagelse
+    // Method to replay the current audio clip.
+    public void PlaySameAudio()
     {
         if (audioSource != null && audioSource.clip != null)
         {
