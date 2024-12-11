@@ -12,8 +12,6 @@ public class ProgressBar : MonoBehaviour
     public float fillSpeed = 0.008f; //Controls the speed of the bar 0.04 works great. Sped up for testing. 
     private float targetProgress = 0; 
     private bool isPaused = false; //Controls when the bar is paused
-    public Button Cons_1Button;
-    public Button Cons_2Button;
     public static ProgressBar Instance;
     CheckpointBehavior CheckpointBehavior;
     
@@ -75,8 +73,6 @@ public class ProgressBar : MonoBehaviour
     {
         isPaused = true;
         SceneManager.LoadScene("DANOK");
-        //Cons_1Button.gameObject.SetActive(true);
-        //Cons_2Button.gameObject.SetActive(true);
         if(Spawner != null)
         {
             Spawner.SetActive(false);
@@ -90,9 +86,6 @@ public class ProgressBar : MonoBehaviour
         isPaused = false;
 
         SceneManager.LoadScene("Level1");
-        //Cons_1Button.gameObject.SetActive(false);
-        //Cons_2Button.gameObject.SetActive(false);
-
     }
     public void ResetProgressBar()
     {
