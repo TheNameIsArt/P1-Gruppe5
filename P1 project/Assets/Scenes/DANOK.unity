@@ -403,7 +403,6 @@ MonoBehaviour:
   WordTxt: {fileID: 0}
   SpeechScript: {fileID: 0}
   VoicePlayer: {fileID: 0}
-  SpriteSpawner: {fileID: 0}
   triesText: {fileID: 0}
   goldToGainTxt: {fileID: 0}
 --- !u!1001 &106481948
@@ -1492,7 +1491,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d9e31b98146b3d4a9970950e7f808e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myClips: {fileID: 0}
   DanokWords: []
   ChosenWord: 
   DanokWordTxt: {fileID: 742888382}
@@ -1848,7 +1846,6 @@ MonoBehaviour:
   WordTxt: {fileID: 0}
   SpeechScript: {fileID: 0}
   VoicePlayer: {fileID: 0}
-  SpriteSpawner: {fileID: 0}
   triesText: {fileID: 0}
   goldToGainTxt: {fileID: 0}
 --- !u!114 &708436159
@@ -4775,7 +4772,6 @@ MonoBehaviour:
   WordTxt: {fileID: 742888382}
   SpeechScript: {fileID: 0}
   VoicePlayer: {fileID: 0}
-  SpriteSpawner: {fileID: 0}
   triesText: {fileID: 2085476070}
   goldToGainTxt: {fileID: 1923969400}
 --- !u!4 &1876438344

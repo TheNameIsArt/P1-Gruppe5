@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class LaneMover : MonoBehaviour
 {
-    public int laneNumber;
-    public float[] laneYPositions;
+    public int laneNumber = 1;
+    private float[] laneYPositions = {-5f, -3.5f, -1.5f};
 
     public float LateralLaneMoveSpeed = 5f;
 

@@ -72,7 +72,7 @@ public class WordGeneratorV3 : MonoBehaviour
     public void WordChooser()
     {
         // Picks a random index for the consonant.
-        ConsonantInt = Random.Range(0, Consonants.Length - 1);
+        ConsonantInt = Random.Range(0, DanokWords.Length - 1);
 
         // Debug log to display the randomly chosen index.
         Debug.LogFormat("The Random number is: {0}", ConsonantInt);
