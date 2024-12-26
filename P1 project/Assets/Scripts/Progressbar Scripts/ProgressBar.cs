@@ -13,6 +13,7 @@ public class ProgressBar : MonoBehaviour
     private float targetProgress = 0; 
     private bool isPaused = false; //Controls when the bar is paused
     public static ProgressBar Instance;
+    string currentLevelName;
     CheckpointBehavior CheckpointBehavior;
     
 
@@ -72,6 +73,8 @@ public class ProgressBar : MonoBehaviour
     public void PauseProgress()
     {
         isPaused = true;
+        currentLevelName = SceneManager.GetActiveScene().name;
+        Debug.Log("Last Level Scene Name: " + currentLevelName);
         SceneManager.LoadScene("DANOK");
         if(Spawner != null)
         {
@@ -85,7 +88,16 @@ public class ProgressBar : MonoBehaviour
     {
         isPaused = false;
 
-        SceneManager.LoadScene("Level1");
+        if(currentLevelName != null)
+        {
+            SceneManager.LoadScene(currentLevelName);
+        }
+        else
+        {
+            SceneManager.LoadScene("Level1");
+        }
+
+        
     }
     public void ResetProgressBar()
     {
