@@ -374,6 +374,7 @@ MonoBehaviour:
   - {fileID: 3454600619952727750, guid: edda77a7aa1ec8f40a38b5bcdabb0455, type: 3}
   - {fileID: 3454600619952727750, guid: fc45f46619e51ad4487350575408ea18, type: 3}
   - {fileID: 3454600619952727750, guid: ff045892a91e7f74fb1510854f9e94b0, type: 3}
+  chest: {fileID: 8752566897998860942, guid: 500f568ddbf36d742a8f53b61fc8b26b, type: 3}
   spawnRate: 1.4
   timer: 0
 --- !u!4 &425067399

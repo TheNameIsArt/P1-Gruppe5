@@ -15,7 +15,7 @@ public class ProgressBar : MonoBehaviour
     public static ProgressBar Instance;
     string currentLevelName;
     CheckpointBehavior CheckpointBehavior;
-    
+    ObstacleSpawnScript ObstacleSpawnScript;
 
     public GameObject Spawner;
 
@@ -26,6 +26,7 @@ public class ProgressBar : MonoBehaviour
         progressBar = gameObject.GetComponent<Slider>();
         Spawner = GameObject.Find("Spawner");
         CheckpointBehavior = GameObject.Find("ColorController").GetComponent<CheckpointBehavior>();
+        ObstacleSpawnScript = Spawner.GetComponent<ObstacleSpawnScript>();
     }
     
     void Start()
@@ -60,6 +61,8 @@ public class ProgressBar : MonoBehaviour
                 }
             }
         }
+        Spawner = GameObject.Find("Spawner");
+        ObstacleSpawnScript = Spawner.GetComponent<ObstacleSpawnScript>();
     }
 
     // Add progress to the bar
@@ -75,7 +78,7 @@ public class ProgressBar : MonoBehaviour
         isPaused = true;
         currentLevelName = SceneManager.GetActiveScene().name;
         Debug.Log("Last Level Scene Name: " + currentLevelName);
-        SceneManager.LoadScene("DANOK");
+        ObstacleSpawnScript.ChestSpawner();
         if(Spawner != null)
         {
             Spawner.SetActive(false);
@@ -91,10 +94,12 @@ public class ProgressBar : MonoBehaviour
         if(currentLevelName != null)
         {
             SceneManager.LoadScene(currentLevelName);
+            
         }
         else
         {
             SceneManager.LoadScene("Level1");
+            
         }
 
         

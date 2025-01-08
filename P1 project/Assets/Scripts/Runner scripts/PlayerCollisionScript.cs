@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCollisionScript : MonoBehaviour
 {
@@ -28,6 +29,12 @@ public class PlayerCollisionScript : MonoBehaviour
                 UIScript.gameOver();
             }
         }
+        if (collision.gameObject.layer == 9)
+        {
+            SceneManager.LoadScene("DANOK");
+
+        }
     }
+
 }
 

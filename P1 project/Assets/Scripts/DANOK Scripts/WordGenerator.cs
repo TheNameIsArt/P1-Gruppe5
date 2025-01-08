@@ -65,7 +65,7 @@ public class WordGeneratorV3 : MonoBehaviour
         }
 
         // Call the method to choose a word and perform related actions.
-        WordChooser();
+        Invoke("WordChooser", 3f);
     }
 
     // Method triggered when a button is clicked to choose a word and consonant.

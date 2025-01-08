@@ -4,9 +4,13 @@ public class ObstacleSpawnScript : MonoBehaviour
 {
     // Array to store different obstacle types
     public GameObject[] Obstacles;
+    public GameObject chest;
 
     public float spawnRate;
     public float timer = 0;
+    private float yValueLane1 = -5f;
+    private float yValueLane2 = -3.3f;
+    private float yValueLane3 = -1.6f;
 
     void Start()
     {
@@ -33,39 +37,43 @@ public class ObstacleSpawnScript : MonoBehaviour
         float Yvalue = 0f;
         float Zvalue = 0f;
 
-        // Define positions based on laneNumber
-        if (laneNumber == 0)
+        // Define positions based on laneNumber using switch-case
+        switch (laneNumber)
         {
-            Yvalue = -5f;
-            Zvalue = 0f; // Closer to the camera
-        }
-        else if (laneNumber == 1)
-        {
-            Yvalue = -3.3f;
-            Zvalue = 1f;
-        }
-        else if (laneNumber == 2)
-        {
-            Yvalue = -1.6f;
-            Zvalue = 2f; // Farther away
-        }
-        else if (laneNumber == 3)
-        {
-            InstantiateRandomObstacle(new Vector3(transform.position.x, -5f, 0f));
-            InstantiateRandomObstacle(new Vector3(transform.position.x, -3.3f, 1f));
-            return; // Avoid double-instantiating
-        }
-        else if (laneNumber == 4)
-        {
-            InstantiateRandomObstacle(new Vector3(transform.position.x, -5f, 0f));
-            InstantiateRandomObstacle(new Vector3(transform.position.x, -1.6f, 2f));
-            return; // Avoid double-instantiating
-        }
-        else if (laneNumber == 5)
-        {
-            InstantiateRandomObstacle(new Vector3(transform.position.x, -1.6f, 2f));
-            InstantiateRandomObstacle(new Vector3(transform.position.x, -3.34f, 1f));
-            return; // Avoid double-instantiating
+            case 0:
+                Yvalue = yValueLane1;
+                Zvalue = 0f; // Closer to the camera
+                break;
+
+            case 1:
+                Yvalue = yValueLane2;
+                Zvalue = 1f;
+                break;
+
+            case 2:
+                Yvalue = yValueLane3;
+                Zvalue = 2f; // Farther away
+                break;
+
+            case 3:
+                InstantiateRandomObstacle(new Vector3(transform.position.x, yValueLane1, 0f));
+                InstantiateRandomObstacle(new Vector3(transform.position.x, yValueLane2, 1f));
+                return; // Avoid double-instantiating
+
+            case 4:
+                InstantiateRandomObstacle(new Vector3(transform.position.x, yValueLane1, 0f));
+                InstantiateRandomObstacle(new Vector3(transform.position.x, yValueLane3, 2f));
+                return; // Avoid double-instantiating
+
+            case 5:
+                InstantiateRandomObstacle(new Vector3(transform.position.x, yValueLane3, 2f));
+                InstantiateRandomObstacle(new Vector3(transform.position.x, yValueLane2, 1f));
+                return; // Avoid double-instantiating
+
+            default:
+                // Optional: Handle unexpected values
+                Debug.LogError("Unexpected laneNumber value: " + laneNumber);
+                return;
         }
 
         // Spawn obstacle for single lane
@@ -80,5 +88,10 @@ public class ObstacleSpawnScript : MonoBehaviour
 
         // Spawn the selected obstacle at the given position
         Instantiate(selectedObstacle, position, transform.rotation);
+    }
+
+    public void ChestSpawner()
+    {
+        Instantiate(chest, new Vector3(transform.position.x, yValueLane2, transform.position.z), transform.rotation);
     }
 }

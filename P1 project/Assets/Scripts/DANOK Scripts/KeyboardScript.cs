@@ -160,5 +160,9 @@ public class KeyboardScript : MonoBehaviour
     {
         SpeechScript.ThumbsDown.SetActive(false); // Hides thumbs-down animation
     }
+    public void Skip()
+    {
+        progressBar.ResumeProgress();
+    }
 }
 
