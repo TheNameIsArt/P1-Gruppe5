@@ -28,31 +28,31 @@ public class SwipeTest : MonoBehaviour
     private void ProcessTouchComplete(InputAction.CallbackContext context)
     {
         //check if the magnitude is high enough
-        Debug.Log("Touch complete");
+        //Debug.Log("Touch complete");
         if (Mathf.Abs(_swipeDirection.magnitude) < minimumSwipeMagnitude) return;
-        Debug.Log("Swipe detected");
+        //Debug.Log("Swipe detected");
         
         var position = Vector3.zero;
 
         //check horizontal direction
         if (_swipeDirection.x > 0) 
         {
-            Debug.Log("Swiping right");
+            //Debug.Log("Swiping right");
         }
         else if (_swipeDirection.x < 0)
         {
-            Debug.Log("Swiping left");
+            //Debug.Log("Swiping left");
         }
 
         //check vertical direction
         if (_swipeDirection.y > 0)
         {
-            Debug.Log("Swiping up");
+            //Debug.Log("Swiping up");
             LaneMover.laneNumber++;
         }
         else if (_swipeDirection.y < 0)
         {
-            Debug.Log("Swiping down");
+            //Debug.Log("Swiping down");
             LaneMover.laneNumber--;
         }
     }
