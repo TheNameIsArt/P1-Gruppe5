@@ -69,7 +69,6 @@ GameObject:
   - component: {fileID: 3097759460874194972}
   - component: {fileID: 7943460559107379758}
   - component: {fileID: 1281643639960449484}
-  - component: {fileID: 2951304773997029788}
   m_Layer: 0
   m_Name: Game Over Screen
   m_TagString: Untagged
@@ -194,19 +193,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &2951304773997029788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1525130706918007122}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55ada343e5577ab4ab4dea61dae0d167, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &1980718280802237223
 GameObject:
   m_ObjectHideFlags: 0
@@ -1409,6 +1395,7 @@ PrefabInstance:
     - {fileID: 3510477177648882178, guid: 9895b93e1eede174083049f7bbeddbba, type: 3}
     - {fileID: 7269988681952030236, guid: 9895b93e1eede174083049f7bbeddbba, type: 3}
     - {fileID: 5780411488323621359, guid: 9895b93e1eede174083049f7bbeddbba, type: 3}
+    - {fileID: 7610673780084201989, guid: 9895b93e1eede174083049f7bbeddbba, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

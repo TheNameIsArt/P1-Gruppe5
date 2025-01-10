@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6683213092853240453}
   - component: {fileID: 5523519435908509050}
-  - component: {fileID: 7269988681952030236}
   m_Layer: 0
   m_Name: Circle 2
   m_TagString: Untagged
@@ -85,18 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7269988681952030236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 79679958939754902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c036fb9d86b9e449b41e62703eb53d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &137244148535251319
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,7 +229,6 @@ GameObject:
   - component: {fileID: 6127561917316623687}
   - component: {fileID: 6302489682966538155}
   - component: {fileID: 2276436823342081498}
-  - component: {fileID: 7610673780084201989}
   m_Layer: 5
   m_Name: Progress Bar
   m_TagString: Untagged
@@ -341,21 +327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fillSpeed: 0.008
-  Cons_1Button: {fileID: 0}
-  Cons_2Button: {fileID: 0}
   Spawner: {fileID: 0}
---- !u!114 &7610673780084201989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3317105071669788105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c036fb9d86b9e449b41e62703eb53d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3530177823955155469
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,7 +511,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3693326918276898668}
   - component: {fileID: 5838494717126172790}
-  - component: {fileID: 3510477177648882178}
   m_Layer: 0
   m_Name: Circle 3
   m_TagString: Untagged
@@ -614,18 +585,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3510477177648882178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6882257584834483264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c036fb9d86b9e449b41e62703eb53d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6954441590297564862
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,7 +595,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6779375216247266600}
   - component: {fileID: 5973425141275161600}
-  - component: {fileID: 5780411488323621359}
   m_Layer: 0
   m_Name: Circle 1
   m_TagString: Untagged
@@ -711,18 +669,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5780411488323621359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6954441590297564862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c036fb9d86b9e449b41e62703eb53d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7258289123500530034
 GameObject:
   m_ObjectHideFlags: 0
