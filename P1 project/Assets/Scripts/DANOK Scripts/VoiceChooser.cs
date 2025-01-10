@@ -73,7 +73,7 @@ public class VoiceChooserV2 : MonoBehaviour
     {
         if (audioSource != null && audioSource.clip != null)
         {
-            audioSource.PlayOneShot(audioSource.clip);
+            audioSource.PlayOneShot(audioSource.clip); //makes it so the audio plays as a new instance. Which makes it so it doesn't cut off the loop
         }
         else
         {

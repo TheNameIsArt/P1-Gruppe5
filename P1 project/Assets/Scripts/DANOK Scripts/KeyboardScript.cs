@@ -25,14 +25,12 @@ public class KeyboardScript : MonoBehaviour
     public GameObject VoicePlayer; // GameObject controlling the audio
 
     // Other references
-    CheckpointBehavior CheckpointBehavior; // Controls behaviors related to checkpoints
-    UIScript UIScript; // Manages UI-related actions and data
+    CheckpointBehavior CheckpointBehavior; // Controls behaviors related to checkpoints in the progressbar
+    UIScript UIScript; // Manages UI-related actions and data (e.g gold)
 
     // Button cooldown logic
     private bool isOnCooldown = false; // Tracks if buttons are on cooldown
-    private bool isOnCooldownBM = false; // Tracks a secondary cooldown for buttons
     float cooldownTime = 4f; // Cooldown time for buttons
-    float cooldownTimeBM = 4f; // Cooldown time for secondary buttons
 
     private ProgressBar progressBar; // Reference to the progress bar
 
@@ -88,7 +86,7 @@ public class KeyboardScript : MonoBehaviour
 
 
     //Repeat button functions
-    public void Gentag()
+    public void Repeat()
     {
         if (SpeechScript != null)
         {
@@ -113,17 +111,7 @@ public class KeyboardScript : MonoBehaviour
         isOnCooldown = false; // Reset the button state
         Debug.Log("Cooldown reset. Button can be pressed again.");
     }
-    /*private void StartCooldownBM()
-    {
-        isOnCooldownBM = true;
-        Invoke("ResetCooldownBM", cooldownTimeBM);
-    }
-
-    private void ResetCooldownBM()
-    {
-        isOnCooldownBM = false;
-        Debug.Log("Cooldown MB reset. Button can be pressed again.");
-    }*/
+  
     private void ShowThumbsUp()
     {
         SpeechScript.ThumbsUp.SetActive(true); // Show thumbs-up animation

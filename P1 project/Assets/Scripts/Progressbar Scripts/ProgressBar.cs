@@ -1,64 +1,70 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI; 
+using UnityEngine.SceneManagement; 
 
 public class ProgressBar : MonoBehaviour
 {
-    private Slider progressBar;
-    public float fillSpeed = 0.008f; // Controls the speed of the bar 0.04 works great. Sped up for testing.
-    private float targetProgress = 0;
-    private bool isPaused = false; // Controls when the bar is paused
-    public static ProgressBar Instance;
-    string currentLevelName;
-    CheckpointBehavior CheckpointBehavior;
-    ObstacleSpawnScript ObstacleSpawnScript;
+    private Slider progressBar; // Reference to the progress bar UI element
+    public float fillSpeed = 0.008f; // Speed at which the bar fills
+    private float targetProgress = 0; // Where the bar currently is
+    private bool isPaused = false; // Indicates if the progress bar is paused
+    public static ProgressBar Instance; // Singleton instance for easy access
+    string currentLevelName; // Tracks the current scene name
+    CheckpointBehavior CheckpointBehavior; // Reference to CheckpointBehavior
+    ObstacleSpawnScript ObstacleSpawnScript; // Reference to the obstacle spawning script
 
-    public GameObject Spawner;
+    public GameObject Spawner; // Spawner object responsible for creating obstacles
 
-    private List<float> pausePoints = new List<float> { 0.25f, 0.5f, 0.75f, 1f }; // Pause points
+    // List of points at which the progress bar will pause (e.g., checkpoints or events)
+    private List<float> pausePoints = new List<float> { 0.25f, 0.5f, 0.75f, 1f };
 
     private void Awake()
     {
+        // Initialize the progress bar component
         progressBar = gameObject.GetComponent<Slider>();
+
+        // Prevent the progress bar object from being destroyed when changing scenes
         DontDestroyOnLoad(gameObject);
 
-        // Subscribe to the sceneLoaded event
+        // Subscribe to the SceneManager's sceneLoaded event to handle scene transitions
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void OnDestroy()
     {
-        // Unsubscribe to avoid errors
+        // Unsubscribe from the sceneLoaded event to avoid memory leaks
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     private void Start()
     {
-        IncrementProgress(1f); // How much of the slider is filled
+        // Start the progress bar with an initial target progress
+        IncrementProgress(1f);
     }
 
     private void Update()
     {
-        // Update the progress bar only if not paused
+        // Update the progress bar value if it's not paused
         if (!isPaused && progressBar.value < targetProgress)
         {
             progressBar.value += fillSpeed * Time.deltaTime;
 
-            // Check if we hit a pause point
+            // Check if the current progress has reached a pause point
             foreach (float pausePoint in pausePoints)
             {
+                //Ensures that it only triggers once when reaching a checkpoint
                 if (progressBar.value >= pausePoint && progressBar.value < pausePoint + fillSpeed * Time.deltaTime)
                 {
-                    if (pausePoint == pausePoints[pausePoints.Count - 1]) // Check if it's the last pause point
+                    if (pausePoint == pausePoints[pausePoints.Count - 1]) // Final pause point (progress complete)
                     {
                         Debug.Log("Final point reached!");
-                        SceneManager.LoadScene("Win Scene");
+                        SceneManager.LoadScene("Win Scene"); // Load the win scene
                     }
                     else
                     {
-                        PauseProgress();
+                        PauseProgress(); // Pause the progress bar
                     }
                     break;
                 }
@@ -68,7 +74,7 @@ public class ProgressBar : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Reinitialize objects specific to the scene
+        // Reinitialize scene-specific objects
         Spawner = GameObject.Find("Spawner");
         if (Spawner != null)
         {
@@ -76,34 +82,38 @@ public class ProgressBar : MonoBehaviour
         }
     }
 
-    // Add progress to the bar
+    // Adds progress to the bar by increasing the target value
     public void IncrementProgress(float newProgress)
     {
         targetProgress = progressBar.value + newProgress;
     }
 
-    // Pause the bar
+    // Pauses the progress bar and triggers associated events (e.g., spawning a chest)
     public void PauseProgress()
     {
-        isPaused = true;
-        currentLevelName = SceneManager.GetActiveScene().name;
+        isPaused = true; // Set the paused state
+        currentLevelName = SceneManager.GetActiveScene().name; // Store the current scene name
         Debug.Log("Last Level Scene Name: " + currentLevelName);
 
+        // Trigger chest spawning if the spawner is present
         if (ObstacleSpawnScript != null)
         {
             ObstacleSpawnScript.ChestSpawner();
         }
+
+        // Disable the spawner to stop spawning obstacles
         if (Spawner != null)
         {
             Spawner.SetActive(false);
         }
     }
 
-    // Resume the bar
+    // Resumes the progress bar and reloads the scene if necessary
     public void ResumeProgress()
     {
-        isPaused = false;
+        isPaused = false; // Resume progress bar updates
 
+        // Reload the current scene or a default scene if no current level is stored
         if (currentLevelName != null)
         {
             SceneManager.LoadScene(currentLevelName);
@@ -114,21 +124,24 @@ public class ProgressBar : MonoBehaviour
         }
     }
 
+    // Resets the progress bar and reinitializes related objects
     public void ResetProgressBar()
     {
         if (progressBar != null)
         {
-            progressBar.value = 0f;
+            progressBar.value = 0f; // Reset progress bar value
         }
 
-        targetProgress = 0f;
-        isPaused = false;
+        targetProgress = 0f; // Reset target progress
+        isPaused = false; // Ensure the bar is not paused
 
+        // Re-enable the spawner if it exists
         if (Spawner != null)
         {
             Spawner.SetActive(true);
         }
 
+        // Add initial progress to restart the bar
         IncrementProgress(1f);
         Debug.Log("Progress bar has been reset!");
     }

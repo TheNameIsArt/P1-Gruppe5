@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class LaneMover : MonoBehaviour
 {
-    public int laneNumber = 1;
-    private float[] laneYPositions = {-5f, -3.5f, -1.5f};
+    public int laneNumber = 1; //players starting lane
+    private float[] laneYPositions = {-5f, -3.5f, -1.5f, 2f}; //Array of y-positions for lanes. Also determins amount of lanes
 
-    public float LateralLaneMoveSpeed = 5f;
+    public float LateralLaneMoveSpeed = 10f; //speed when lane-switching
 
     void Update()
     {
@@ -13,7 +13,7 @@ public class LaneMover : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S)) laneNumber--;
         if (Input.GetKeyDown(KeyCode.W)) laneNumber++;
 
-        // Guard laneNumber to valid range
+        // Guard laneNumber to valid range (so you don't go out of bounds)
         if (laneNumber < 0) laneNumber = 0;
         if (laneNumber > laneYPositions.Length - 1) laneNumber = laneYPositions.Length - 1;
 

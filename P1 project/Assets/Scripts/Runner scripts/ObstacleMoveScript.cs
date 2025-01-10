@@ -1,33 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ObstacleMoveScript : MonoBehaviour
 {
+    // Speed at which the obstacle moves to the left
     public float moveSpeed = 5;
+
+    // Position on the X-axis where the obstacle gets destroyed (out of bounds)
     public float deadZone = -20;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
     {
+        // Move the obstacle to the left at a constant speed
+        // Time.deltaTime ensures the movement is frame-rate independent
         transform.position = transform.position + (Vector3.left * moveSpeed) * Time.deltaTime;
+
+        // Check if the obstacle has moved past the dead zone
         if (transform.position.x < deadZone)
         {
+            // Destroy the obstacle to free up resources
             Destroy(gameObject);
         }
     }
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == 3)
-        {
-            Destroy(gameObject);
-        }
-    }
-
 }
