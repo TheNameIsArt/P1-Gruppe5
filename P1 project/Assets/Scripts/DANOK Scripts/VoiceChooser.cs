@@ -7,7 +7,7 @@ public class VoiceChooserV2 : MonoBehaviour
     public AudioClip[] audioClips;           // Array of all AudioClips.
     private Dictionary<string, AudioClip> audioClipMap; // Dictionary for quick access to clips by name.
 
-    private string audioClipName;            // Dynamically generated name of the audio clip.
+    private string audioClipName;            // String to store the choosen words name
     public GameObject Logic;                 // Reference to the Logic GameObject.
     public WordGeneratorV3 WordGenerator;    // Reference to the WordGeneratorV3 script.
     private string[] Voices = { "_F1", "_F2", "_M1", "_M2" }; // Voice types. Not currently implemented.
@@ -53,7 +53,8 @@ public class VoiceChooserV2 : MonoBehaviour
 
         // Choose a random voice type (currently defaults to F1).
         int randomIndex = Random.Range(0, Voices.Length);
-        audioClipName = WordGenerator.ChosenWord + Voices[0]; // Change to Voices[randomIndex] if needed.
+        // Change to Voices[randomIndex] if needed.
+        audioClipName = WordGenerator.ChosenWord + Voices[0]; 
         Debug.Log("Generated AudioClipName: " + audioClipName);
 
         // Attempt to play the audio clip if it exists in the dictionary.
