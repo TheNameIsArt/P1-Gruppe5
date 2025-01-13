@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6475ec96e9d255b4891317576a1082d3
+guid: 3c25c409f2835ca46a6ba23e7e3a4aa9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,91 +121,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: main-knapper_0
-      rect:
-        serializedVersion: 2
-        x: 1342
-        y: 2179
-        width: 1315
-        height: 602
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c008b3cdd7a984c4fa7b8c71ceda3c77
-      internalID: -363130698
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: main-knapper_1
-      rect:
-        serializedVersion: 2
-        x: 1349
-        y: 1393
-        width: 1313
-        height: 603
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4a97b996432302142906cacc3042e1b7
-      internalID: -2140591671
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: main-knapper_2
-      rect:
-        serializedVersion: 2
-        x: 1345
-        y: 634
-        width: 1313
-        height: 603
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 25675357ff62f4044a68b4eba6a48b11
-      internalID: -1544137573
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: main-knapper_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1313
-        height: 602
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f496a0dee1b0870408f86ddae2ada393
-      internalID: 937463819
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -216,11 +132,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      main-knapper_0: -363130698
-      main-knapper_1: -2140591671
-      main-knapper_2: -1544137573
-      main-knapper_3: 937463819
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

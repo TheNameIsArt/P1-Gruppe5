@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1d657670e0d1ea24e8a58ee7a5b34a00
+guid: 9c42465f148255e4a9589fb744261d1a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,133 +121,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Flagermus_0
-      rect:
-        serializedVersion: 2
-        x: 23
-        y: 1595
-        width: 1687
-        height: 943
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2a2ba506d1bfaf748beffedcad37b6c9
-      internalID: 1928931773
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Flagermus_1
-      rect:
-        serializedVersion: 2
-        x: 1993
-        y: 1532
-        width: 1234
-        height: 1041
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 01634d59d8999974e8d9a950ff5dda1a
-      internalID: 1914799156
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Flagermus_2
-      rect:
-        serializedVersion: 2
-        x: 3537
-        y: 1641
-        width: 1622
-        height: 927
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 716a6cd1ea449a746812325eb7f7e66c
-      internalID: 947219552
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Flagermus_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 78
-        width: 1602
-        height: 900
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5f43eb7ef2c0e0f4a9c04c5798c4150e
-      internalID: 402059429
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Flagermus_4
-      rect:
-        serializedVersion: 2
-        x: 1864
-        y: 55
-        width: 1673
-        height: 867
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 347619ed86c916d4ea28b360c43dce23
-      internalID: -563681979
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Flagermus_5
-      rect:
-        serializedVersion: 2
-        x: 3761
-        y: 0
-        width: 1388
-        height: 1063
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9b4fb0c84ac4e574784e02a29e584302
-      internalID: 1200823595
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -258,13 +132,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Flagermus_0: 1928931773
-      Flagermus_1: 1914799156
-      Flagermus_2: 947219552
-      Flagermus_3: 402059429
-      Flagermus_4: -563681979
-      Flagermus_5: 1200823595
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
