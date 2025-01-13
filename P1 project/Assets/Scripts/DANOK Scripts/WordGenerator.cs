@@ -78,7 +78,8 @@ public class WordGeneratorV3 : MonoBehaviour
         Debug.LogFormat("The Random number is: {0}", ConsonantInt);
 
         // Debug log to display the chosen consonant and word.
-        Debug.LogFormat("The Consonant is: {0} and the word is: {1}", Consonants[ConsonantInt], DanokWords[ConsonantInt]);
+        Debug.LogFormat("The Consonant is: {0} and the word is: {1}", 
+            Consonants[ConsonantInt], DanokWords[ConsonantInt]);
 
         // Update the UI text with a placeholder.
         DanokWordTxt.text = "ba?i";

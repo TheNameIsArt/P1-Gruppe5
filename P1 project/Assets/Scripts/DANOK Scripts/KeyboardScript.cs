@@ -115,16 +115,16 @@ public class KeyboardScript : MonoBehaviour
     private void ShowThumbsUp()
     {
         SpeechScript.ThumbsUp.SetActive(true); // Show thumbs-up animation
-        Invoke("HideThumbsUp", 1f); // Hide after 1 second
+        Invoke("Resume", 3f); // Resumes after 3f
         CheckpointBehavior.CorrectButton(); // Update game state for a correct answer
         UIScript.correctAnswersGotten += 1; // Increment correct answers count
         UIScript.Gold += goldToGain; // Add gold reward
-        progressBar.ResumeProgress(); // Update progress
+        
     }
 
-    private void HideThumbsUp()
+    private void Resume()
     {
-        SpeechScript.ThumbsUp.SetActive(false); // Hides thumbs-up animation
+        progressBar.ResumeProgress(); // Sends you back to the running game
     }
     private void ShowThumbsDown()
     {
@@ -133,20 +133,20 @@ public class KeyboardScript : MonoBehaviour
         goldToGain /= 2; // Halve the gold reward
         goldToGainTxt.text = "Guld du kan vinde: " + goldToGain; // Updates goldToGainTxt to correct amount of gold
         triesText.text = "Forsøg tilbage: " + triesLeft; // Updates tries left to correct amount of tries
-
-        Invoke("HideThumbsDown", 1f); // Hide after 1 second
+        Invoke("HideThumbsDown", 2f); // Hide after 3 second
         if (triesLeft <= 0 && !NoMoreTries)
         {
             NoMoreTries = true; // Prevent further tries
             CheckpointBehavior.IncorrectButton(); // Trigger incorrect logic
             UIScript.incorrectAnswersGotten += 1; // Increment incorrect answers count
-            progressBar.ResumeProgress(); // Update progress
+            Invoke("Resume", 3f); // Resumes after 3f
         }
     }
 
     private void HideThumbsDown()
     {
         SpeechScript.ThumbsDown.SetActive(false); // Hides thumbs-down animation
+        Repeat();
     }
     public void Skip()
     {
