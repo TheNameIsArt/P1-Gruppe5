@@ -3,7 +3,8 @@ using UnityEngine;
 public class LaneMover : MonoBehaviour
 {
     public int laneNumber = 1; //players starting lane
-    private float[] laneYPositions = {-5f, -3.5f, -1.5f}; //Array of y-positions for lanes. Also determins amount of lanes
+    //Array of y-positions for lanes. Also determins amount of lanes
+    private float[] laneYPositions = {-5f, -3.5f, -1.5f}; 
 
     public float LateralLaneMoveSpeed = 10f; //speed when lane-switching
 
